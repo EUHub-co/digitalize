@@ -8,12 +8,12 @@ permissions:
   id-token: write
 
 env:
-  PROJECT_ID: euhub-ai
+  PROJECT_ID: euhub-marketing
   REGION: europe-west1
   SERVICE_NAME: euhub-ai-web
-  ARTIFACT_REGISTRY: europe-west1-docker.pkg.dev/euhub-ai/euhub-ai-web
+  ARTIFACT_REGISTRY: europe-west1-docker.pkg.dev/euhub-marketing/euhub-ai-web
   IMAGE_NAME: euhub-ai-web
-  RUNTIME_SERVICE_ACCOUNT: "cloudrun-runtime@euhub-ai.iam.gserviceaccount.com"
+  RUNTIME_SERVICE_ACCOUNT: "euhub-ai-web-runtime@euhub-marketing.iam.gserviceaccount.com"
 
 jobs:
   ci:
@@ -29,8 +29,8 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v3
         with:
-          workload_identity_provider: projects/897712119404/locations/global/workloadIdentityPools/github-actions/providers/github
-          service_account: github-deployer@euhub-ai.iam.gserviceaccount.com
+          workload_identity_provider: projects/139826268276/locations/global/workloadIdentityPools/github/providers/euhub-ai-web
+          service_account: euhub-ai-web-deployer@euhub-marketing.iam.gserviceaccount.com
           token_format: access_token
 
       - name: Login to Artifact Registry
@@ -72,8 +72,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v3
         with:
-          workload_identity_provider: projects/897712119404/locations/global/workloadIdentityPools/github-actions/providers/github
-          service_account: github-deployer@euhub-ai.iam.gserviceaccount.com
+          workload_identity_provider: projects/139826268276/locations/global/workloadIdentityPools/github/providers/euhub-ai-web
+          service_account: euhub-ai-web-deployer@euhub-marketing.iam.gserviceaccount.com
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v3
