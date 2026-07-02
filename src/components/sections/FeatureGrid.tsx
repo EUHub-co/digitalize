@@ -7,55 +7,57 @@ type Role = 'manager' | 'dispatcher' | 'telemetry' | 'lokator' | 'finance' | 'dr
 type Msg = { role: Role; from: string; text: string };
 type Scene = { id: string; title: string; messages: Msg[] };
 
-// Hard-coded English fallback used when the dictionary lacks features.demo.scenes
+// Hard-coded English fallback used when the dictionary lacks features.demo.scenes.
+// Roles map to the real FAIA bots: dispatcher=Dispečer · telemetry=Veštec ·
+// lokator=Strážca · finance=Financie · driver=Vodič.
 const FALLBACK_SCENES: Scene[] = [
-    { id: 'invoices', title: 'Invoice processing', messages: [
-        { role: 'manager', from: 'You', text: 'Can you process the Q3 invoices?' },
-        { role: 'finance', from: 'Finance', text: 'Processing 412 invoices. Validating against ERP…' },
-        { role: 'finance', from: 'Finance', text: 'Done. 410 approved, 2 flagged for review.' },
-    ]},
     { id: 'briefing', title: 'Morning briefing', messages: [
-        { role: 'dispatcher', from: 'Dispatcher', text: '☕ Morning briefing — 40 trucks, 38 active trips. 3 decisions need you today.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: 'Overnight fuel anomaly on one truck · 2 invoices overdue (€3,240) · 1 unassigned load.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: 'I handled 32 routine trips myself. Coffee?' },
-    ]},
-    { id: 'fuel-fraud', title: 'Fuel-fraud catch', messages: [
-        { role: 'telemetry', from: 'Telemetry', text: '⚠️ Truck TD118BA — 55 L/100km vs 30 norm at 02:15. Off-profile.' },
-        { role: 'lokator', from: 'Locator', text: 'GPS × fuel-card × CMR: 18-min stop off-route, card drew +72 L, cargo unchanged.' },
-        { role: 'finance', from: 'Finance', text: 'Estimated loss ≈ €600/month if it repeats.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: 'Above my mandate — escalating for your decision: block card / call driver?' },
+        { role: 'dispatcher', from: 'Dispatcher', text: '☕ Morning briefing — 40 trucks, 38 active trips, 6 deliveries before noon.' },
+        { role: 'telemetry', from: 'Forecast', text: 'Fleet health: 37 green. TD204CK front-axle sensor drifting — service due in ~800 km.' },
+        { role: 'finance', from: 'Finance', text: '2 invoices overdue (€3,240). Payment-reminder drafts ready for your sign-off.' },
+        { role: 'lokator', from: 'Guardian', text: 'Thursday load still unassigned — 3 trucks fit by route and rest windows.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'I handled 32 routine trips overnight. Three things need you: reminders, the Thursday load, the service slot.' },
+        { role: 'manager', from: 'You', text: 'Send the reminders. Book the service for Friday.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Done — reminders out, service booked. Thursday load: shortlist coming.' },
     ]},
     { id: 'cold-chain', title: 'Cold-chain exception', messages: [
-        { role: 'telemetry', from: 'Telemetry', text: '⚠️ Return-air +9.1°C for 7 min (limit +8°C) near Vienna.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: 'Calling the driver now. ETA unaffected — watching the temperature recover.' },
-    ]},
-    { id: 'theft', title: 'Cargo-theft alert', messages: [
-        { role: 'lokator', from: 'Locator', text: '🚨 TD118BA — 22-min unplanned stop off the planned corridor.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: 'Risk: 18.5t chilled load. Contacting the driver.' },
-        { role: 'driver', from: 'Driver', text: 'All good — mandatory EU 561 break. Trailer locked, seal intact.' },
-        { role: 'lokator', from: 'Locator', text: 'Cross-checked: matches required rest, no door event. Cleared. ✅' },
+        { role: 'telemetry', from: 'Forecast', text: '⚠️ Return-air +9.1°C for 7 min (limit +8°C) near Vienna. Pharma load, narrow tolerance.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Calling the driver. Holding the consignee ETA notice until we know more.' },
+        { role: 'driver', from: 'Driver', text: 'Door stood open at the loading dock longer than planned. Closed now, unit on full power.' },
+        { role: 'telemetry', from: 'Forecast', text: 'Temperature falling — +8.4°C… +7.9°C. Back inside the band in ~4 min.' },
+        { role: 'lokator', from: 'Guardian', text: 'ETA unaffected. No further stops before delivery.' },
+        { role: 'finance', from: 'Finance', text: 'Excursion logged: 7 min, peak +9.1°C, cause and correction documented for the batch record.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Consignee notified with the full log. No claim exposure — the evidence trail is complete.' },
     ]},
     { id: 'compliance', title: 'Compliance guard', messages: [
         { role: 'driver', from: 'Driver', text: 'Unloaded, CMR signed, temperature log clean.' },
-        { role: 'finance', from: 'Finance', text: 'Invoice generated, €2,275.50, due in 21 days.' },
-        { role: 'lokator', from: 'Locator', text: '⚠️ EU 561: 7h45m driven — both next loads would breach the daily limit. Rest 11h.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: 'Rest scheduled, books closed. No Friday call to accounting.' },
+        { role: 'finance', from: 'Finance', text: 'Invoice generated — €2,275.50, due in 21 days, attached to the CMR.' },
+        { role: 'lokator', from: 'Guardian', text: '⚠️ EU 561: 7h45m driven today — both follow-up loads would breach the daily limit.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Checking alternatives… load 1 shifts to TD117AZ — 40 min away, fresh hours.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Load 2 holds until 06:00 tomorrow, still inside the customer’s window. No penalty triggered.' },
+        { role: 'driver', from: 'Driver', text: '11h rest scheduled. Confirmed.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Books closed: delivered, invoiced, compliant. No Friday call to accounting.' },
     ]},
     { id: 'weekend', title: 'Weekend autonomy', messages: [
-        { role: 'dispatcher', from: 'Dispatcher', text: '🤖 Weekend mode — manager off. Holding first-line operations.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: '6 trips completed, 1 load auto-assigned within mandate, 1 false alarm cleared.' },
-        { role: 'dispatcher', from: 'Dispatcher', text: 'Monday: one summary instead of 47 notifications.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: '🤖 Weekend mode — manager offline. Holding first-line operations within mandate.' },
+        { role: 'telemetry', from: 'Forecast', text: 'Sat 03:12 — reefer deviation on TD118BA. Resolved in 9 min, logged.' },
+        { role: 'lokator', from: 'Guardian', text: 'Sat 14:30 — unplanned stop, cross-checked against rest rules: legitimate break. Cleared.' },
+        { role: 'finance', from: 'Finance', text: 'Sun — 4 PODs matched, 4 invoices queued for Monday. One rate mismatch flagged, not sent.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Urgent load offer came in. Within mandate: accepted, assigned, customer confirmed.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'One request exceeded mandate (new route, new client) — parked for your Monday review.' },
+        { role: 'dispatcher', from: 'Dispatcher', text: 'Monday 07:30: one summary, two decisions. Instead of 47 notifications.' },
     ]},
 ];
 
-// Role-tinted accents for the sender label (dot + name) on agent bubbles
-const ROLE_ACCENT: Record<Role, { dot: string; text: string }> = {
-    manager: { dot: '', text: '' },
-    dispatcher: { dot: 'bg-slate-400', text: 'text-slate-500 dark:text-slate-400' },
-    telemetry: { dot: 'bg-amber-400', text: 'text-amber-600 dark:text-amber-400' },
-    lokator: { dot: 'bg-sky-400', text: 'text-sky-600 dark:text-sky-400' },
-    finance: { dot: 'bg-emerald-400', text: 'text-emerald-600 dark:text-emerald-400' },
-    driver: { dot: 'bg-violet-400', text: 'text-violet-600 dark:text-violet-400' },
+// Role-tinted accents for the sender row (avatar circle + name) on agent bubbles.
+// Avatar initials follow the real FAIA convention: "F" + first letter of the bot name.
+const ROLE_ACCENT: Record<Role, { avatar: string; text: string }> = {
+    manager: { avatar: '', text: '' },
+    dispatcher: { avatar: 'bg-rose-500', text: 'text-rose-600 dark:text-rose-400' },
+    telemetry: { avatar: 'bg-fuchsia-500', text: 'text-fuchsia-600 dark:text-fuchsia-400' },
+    lokator: { avatar: 'bg-orange-500', text: 'text-orange-600 dark:text-orange-400' },
+    finance: { avatar: 'bg-sky-500', text: 'text-sky-600 dark:text-sky-400' },
+    driver: { avatar: 'bg-violet-500', text: 'text-violet-600 dark:text-violet-400' },
 };
 
 export const FeatureGrid = ({ lang, dict }: { lang: string, dict: any }) => {
@@ -161,10 +163,10 @@ export const FeatureGrid = ({ lang, dict }: { lang: string, dict: any }) => {
                         <div className="p-8 pb-0">
                             <h3 className="text-2xl font-bold mb-2">{dict.features?.agentTitle || 'Autonomous AI Assistants'}</h3>
                             <p className="text-[var(--muted-foreground)] max-w-md">
-                                {dict.features?.agentDesc || 'Deploy agents that execute multi-step operations like invoice processing, tier-1 support, and data aggregation entirely on their own.'}
+                                {dict.features?.agentDesc || 'Five specialised agents run the operation and coordinate it among themselves — bot to bot. You step in only for the decisions that matter.'}
                             </p>
                             <p className="mt-3 text-sm text-[var(--muted-foreground)] max-w-md">
-                                {dict.features?.demo?.attribution || 'Real scenes from our autonomous fleet-ops product,'}{' '}
+                                {dict.features?.demo?.attribution || 'Demo scenes from FAIA (Fleet AI Assistant), the multi-agent core of'}{' '}
                                 <a
                                     href="https://lkw-control.com"
                                     target="_blank"
@@ -181,20 +183,21 @@ export const FeatureGrid = ({ lang, dict }: { lang: string, dict: any }) => {
 
                         {/* Animated Chat Interface */}
                         <div ref={chatRef} className="mt-8 mx-8 mb-0 p-4 bg-white dark:bg-[#0D0E15] border-t border-l border-r border-slate-200 dark:border-[#2A2D3E] rounded-t-xl flex-1 min-h-[16rem] overflow-hidden relative flex flex-col shadow-[0_-5px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-                            {/* Window chrome: traffic lights · address (lkw-control.com) · scene title pill */}
-                            <div className="flex items-center gap-2 mb-3 border-b border-slate-200 dark:border-[#2A2D3E] pb-3 relative z-20">
-                                <div className="w-2.5 h-2.5 rounded-full bg-red-400 dark:bg-red-500/80"></div>
-                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400 dark:bg-yellow-500/80"></div>
-                                <div className="w-2.5 h-2.5 rounded-full bg-green-400 dark:bg-green-500/80"></div>
-                                {/* Faux address bar — brands every frame as the real LKW-Control product */}
-                                <span aria-hidden="true" className="absolute left-1/2 -translate-x-1/2 hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-slate-400 dark:text-slate-500 pointer-events-none select-none">
-                                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <rect x="5" y="11" width="14" height="10" rx="2" />
-                                        <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-                                    </svg>
-                                    lkw-control.com
+                            {/* Group-chat header: FAIA group avatar · name · members · scene title pill */}
+                            <div className="flex items-center gap-2.5 mb-3 border-b border-slate-200 dark:border-[#2A2D3E] pb-3 relative z-20">
+                                <span aria-hidden="true" className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#7B61FF] flex items-center justify-center text-[11px] font-bold text-[#0D0E15] flex-shrink-0 select-none">
+                                    F
                                 </span>
-                                <span className="ml-auto text-[10px] font-medium tracking-wide px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 dark:bg-[#151722] dark:text-slate-400 border border-slate-200 dark:border-[#2A2D3E]">
+                                <div className="flex flex-col leading-tight min-w-0">
+                                    <span className="text-[12px] font-semibold text-slate-700 dark:text-slate-200 truncate">
+                                        {dict.features?.demo?.groupName || 'FAIA · Fleet Ops'}
+                                    </span>
+                                    <span className="text-[10px] text-slate-400 dark:text-slate-500 inline-flex items-center gap-1">
+                                        <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                        {dict.features?.demo?.groupSub || '5 agents + you'}
+                                    </span>
+                                </div>
+                                <span className="ml-auto text-[10px] font-medium tracking-wide px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 dark:bg-[#151722] dark:text-slate-400 border border-slate-200 dark:border-[#2A2D3E] flex-shrink-0">
                                     {scene?.title}
                                 </span>
                             </div>
@@ -212,7 +215,10 @@ export const FeatureGrid = ({ lang, dict }: { lang: string, dict: any }) => {
                                         <div key={i} className={`flex flex-col ${isManager ? 'items-end' : 'items-start'} animate-[fade-in-up_0.3s_ease-out_forwards]`}>
                                             {!isManager && (
                                                 <div className="flex items-center gap-1.5 mb-1 px-1">
-                                                    <span className={`w-1.5 h-1.5 rounded-full ${accent.dot}`}></span>
+                                                    {/* Bot avatar — FAIA convention: "F" + first letter of the bot name */}
+                                                    <span aria-hidden="true" className={`w-5 h-5 rounded-full ${accent.avatar} text-white text-[8px] font-bold flex items-center justify-center select-none`}>
+                                                        F{(msg.from || '?').charAt(0).toUpperCase()}
+                                                    </span>
                                                     <span className={`text-[11px] font-medium ${accent.text}`}>{msg.from}</span>
                                                 </div>
                                             )}
@@ -221,6 +227,9 @@ export const FeatureGrid = ({ lang, dict }: { lang: string, dict: any }) => {
                                                 : 'bg-slate-100 text-slate-800 border border-slate-200 dark:bg-[#151722] dark:text-white dark:border-[#2A2D3E]'}`}>
                                                 {msg.text}
                                             </div>
+                                            {isManager && (
+                                                <span aria-hidden="true" className="text-[10px] text-[var(--primary)] px-1 mt-0.5 select-none">✓✓</span>
+                                            )}
                                         </div>
                                     );
                                 })}
