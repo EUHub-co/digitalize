@@ -129,47 +129,176 @@
         "tag": "Schopnosti",
         "title": "Navrhnuté pre podniky",
         "agentTitle": "Autonómni AI asistenti",
-        "agentDesc": "Nasadzujte agentov, ktorí úplne samostatne vykonávajú viac-krokové operácie ako spracovanie faktúr, podporu prvej úrovne a agregáciu dát.",
+        "agentDesc": "Päť špecializovaných agentov riadi prevádzku a koordinuje sa navzájom — bot s botom. Vy vstupujete len pri rozhodnutiach, na ktorých záleží.",
         "demo": {
-            "attribution": "Reálne scény z nášho autonómneho produktu pre správu kamiónovej dopravy,",
+            "attribution": "Demo scény z FAIA (Fleet AI Assistant), multiagentného jadra produktu",
+            "groupName": "FAIA · Fleet Ops",
+            "groupSub": "5 agentov + vy",
             "scenes": [
-                { "id": "invoices", "title": "Spracovanie faktúr", "messages": [
-                    { "role": "manager", "from": "Vy", "text": "Vieš spracovať faktúry za Q3?" },
-                    { "role": "finance", "from": "Financie", "text": "Spracovávam 412 faktúr. Overujem voči ERP…" },
-                    { "role": "finance", "from": "Financie", "text": "Hotovo. 410 schválených, 2 označené na kontrolu." }
-                ]},
-                { "id": "briefing", "title": "Ranný brífing", "messages": [
-                    { "role": "dispatcher", "from": "Dispečer", "text": "☕ Ranný brífing — 40 kamiónov, 38 aktívnych jázd. Dnes potrebujú 3 rozhodnutia od teba." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "Nočná anomália paliva na jednom kamióne · 2 faktúry po splatnosti (3 240 €) · 1 nepriradená nakládka." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "32 rutinných jázd som vybavil sám. Kávu?" }
-                ]},
-                { "id": "fuel-fraud", "title": "Odhalenie krádeže paliva", "messages": [
-                    { "role": "telemetry", "from": "Telemetria", "text": "⚠️ Kamión TD118BA — 55 L/100km oproti norme 30 o 02:15. Mimo profilu." },
-                    { "role": "lokator", "from": "Lokátor", "text": "GPS × palivová karta × CMR: 18-min zastávka mimo trasy, karta natiahla +72 L, náklad nezmenený." },
-                    { "role": "finance", "from": "Financie", "text": "Odhadovaná strata ≈ 600 €/mesiac, ak sa to opakuje." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "Nad rámec môjho mandátu — eskalujem na tvoje rozhodnutie: zablokovať kartu / volať vodičovi?" }
-                ]},
-                { "id": "cold-chain", "title": "Výnimka chladiaceho reťazca", "messages": [
-                    { "role": "telemetry", "from": "Telemetria", "text": "⚠️ Teplota vratného vzduchu +9,1 °C počas 7 min (limit +8 °C) pri Viedni." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "Volám vodičovi. ETA bez zmeny — sledujem návrat teploty do normálu." }
-                ]},
-                { "id": "theft", "title": "Výstraha krádeže nákladu", "messages": [
-                    { "role": "lokator", "from": "Lokátor", "text": "🚨 TD118BA — 22-min neplánovaná zastávka mimo plánovaného koridoru." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "Riziko: 18,5 t chladený náklad. Kontaktujem vodiča." },
-                    { "role": "driver", "from": "Vodič", "text": "Všetko v poriadku — povinná prestávka EU 561. Náves zamknutý, plomba neporušená." },
-                    { "role": "lokator", "from": "Lokátor", "text": "Prekontrolované: zodpovedá povinnému odpočinku, žiadne otvorenie dverí. Vyriešené. ✅" }
-                ]},
-                { "id": "compliance", "title": "Strážca compliance", "messages": [
-                    { "role": "driver", "from": "Vodič", "text": "Vyložené, CMR podpísaný, teplotný záznam čistý." },
-                    { "role": "finance", "from": "Financie", "text": "Faktúra vystavená, 2 275,50 €, splatnosť 21 dní." },
-                    { "role": "lokator", "from": "Lokátor", "text": "⚠️ EU 561: odjazdených 7h45m — obe ďalšie nakládky by prekročili denný limit. Odpočinok 11h." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "Odpočinok naplánovaný, knihy uzavreté. Žiadny piatkový telefonát na účtovníctvo." }
-                ]},
-                { "id": "weekend", "title": "Víkendová autonómia", "messages": [
-                    { "role": "dispatcher", "from": "Dispečer", "text": "🤖 Víkendový režim — manažér mimo. Držím prvolíniovú prevádzku." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "6 jázd dokončených, 1 nakládka automaticky priradená v rámci mandátu, 1 falošný poplach vyriešený." },
-                    { "role": "dispatcher", "from": "Dispečer", "text": "Pondelok: jedno zhrnutie namiesto 47 notifikácií." }
-                ]}
+                {
+                    "id": "briefing",
+                    "title": "Ranný brífing",
+                    "messages": [
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "☕ Ranný brífing — 40 kamiónov, 38 aktívnych jázd, 6 doručení do obeda."
+                        },
+                        {
+                            "role": "telemetry",
+                            "from": "Veštec",
+                            "text": "Stav flotily: 37 v zelenom. TD204CK — senzor prednej nápravy sa odchyľuje, servis o ~800 km."
+                        },
+                        {
+                            "role": "finance",
+                            "from": "Financie",
+                            "text": "2 faktúry po splatnosti (3 240 €). Návrhy upomienok čakajú na vaše schválenie."
+                        },
+                        {
+                            "role": "lokator",
+                            "from": "Strážca",
+                            "text": "Štvrtková nakládka stále nepriradená — 3 kamióny vyhovujú trasou aj odpočinkami."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "32 rutinných jázd som cez noc vybavil sám. Tri veci potrebujú vás: upomienky, štvrtková nakládka, termín servisu."
+                        },
+                        {
+                            "role": "manager",
+                            "from": "Vy",
+                            "text": "Upomienky pošli. Servis objednaj na piatok."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Hotovo — upomienky odoslané, servis objednaný. K štvrtkovej nakládke pošlem užší výber."
+                        }
+                    ]
+                },
+                {
+                    "id": "cold-chain",
+                    "title": "Výnimka chladiaceho reťazca",
+                    "messages": [
+                        {
+                            "role": "telemetry",
+                            "from": "Veštec",
+                            "text": "⚠️ Teplota spätného vzduchu +9,1 °C počas 7 min (limit +8 °C) pri Viedni. Farmaceutický náklad, úzka tolerancia."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Volám vodičovi. Avízo o ETA príjemcovi zatiaľ pozdržím."
+                        },
+                        {
+                            "role": "driver",
+                            "from": "Vodič",
+                            "text": "Dvere na rampe boli otvorené dlhšie, než sa plánovalo. Už sú zavreté, agregát ide naplno."
+                        },
+                        {
+                            "role": "telemetry",
+                            "from": "Veštec",
+                            "text": "Teplota klesá — +8,4 °C… +7,9 °C. V norme približne o 4 minúty."
+                        },
+                        {
+                            "role": "lokator",
+                            "from": "Strážca",
+                            "text": "ETA bez zmeny. Do vykládky žiadne ďalšie zastávky."
+                        },
+                        {
+                            "role": "finance",
+                            "from": "Financie",
+                            "text": "Odchýlka zapísaná: 7 min, špička +9,1 °C, príčina aj náprava zdokumentované pre záznam šarže."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Príjemca informovaný aj s kompletným logom. Žiadne riziko reklamácie — dôkazová stopa je úplná."
+                        }
+                    ]
+                },
+                {
+                    "id": "compliance",
+                    "title": "Strážca súladu",
+                    "messages": [
+                        {
+                            "role": "driver",
+                            "from": "Vodič",
+                            "text": "Vyložené, CMR podpísané, teplotný záznam čistý."
+                        },
+                        {
+                            "role": "finance",
+                            "from": "Financie",
+                            "text": "Faktúra vystavená — 2 275,50 €, splatnosť 21 dní, priložená k CMR."
+                        },
+                        {
+                            "role": "lokator",
+                            "from": "Strážca",
+                            "text": "⚠️ EÚ 561: dnes odjazdených 7 h 45 min — obe nasledujúce nakládky by prekročili denný limit."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Hľadám alternatívy… nakládka 1 prechádza na TD117AZ — 40 minút odtiaľ, čerstvé hodiny."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Nakládka 2 počká do zajtra 06:00, stále v okne zákazníka. Žiadna zmluvná pokuta."
+                        },
+                        {
+                            "role": "driver",
+                            "from": "Vodič",
+                            "text": "11 h odpočinok naplánovaný. Potvrdzujem."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Uzavreté: doručené, vyfakturované, v súlade. Žiadny piatkový telefonát do učtárne."
+                        }
+                    ]
+                },
+                {
+                    "id": "weekend",
+                    "title": "Víkendová autonómia",
+                    "messages": [
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "🤖 Víkendový režim — manažér offline. Prvú líniu držím v rámci mandátu."
+                        },
+                        {
+                            "role": "telemetry",
+                            "from": "Veštec",
+                            "text": "So 03:12 — odchýlka chladenia na TD118BA. Vyriešené za 9 minút, zapísané."
+                        },
+                        {
+                            "role": "lokator",
+                            "from": "Strážca",
+                            "text": "So 14:30 — neplánovaná zastávka, overená voči pravidlám odpočinku: oprávnená prestávka. Uzavreté."
+                        },
+                        {
+                            "role": "finance",
+                            "from": "Financie",
+                            "text": "Ne — 4 dodacie listy spárované, 4 faktúry pripravené na pondelok. Jeden nesúlad sadzby označený, neodoslaný."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Prišla urgentná ponuka nakládky. V rámci mandátu: prijatá, priradená, zákazník potvrdil."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Jedna požiadavka presiahla mandát (nová trasa, nový klient) — odložená na vašu pondelkovú kontrolu."
+                        },
+                        {
+                            "role": "dispatcher",
+                            "from": "Dispečer",
+                            "text": "Pondelok 07:30: jeden súhrn, dve rozhodnutia. Namiesto 47 notifikácií."
+                        }
+                    ]
+                }
             ]
         },
         "items": [
@@ -345,7 +474,10 @@
         "items": []
     },
     "infra": {
-        "nav": { "back": "euhub-ai.com", "waitlist": "Pridať sa do waitlistu" },
+        "nav": {
+            "back": "euhub-ai.com",
+            "waitlist": "Pridať sa do waitlistu"
+        },
         "hero": {
             "eyebrow": "Migrácia infraštruktúry · DevSecOps",
             "titleLead": "Migrujte s istotou.",
@@ -378,30 +510,66 @@
             ],
             "sourcesLabel": "Zdroje:",
             "sources": [
-                { "label": "SCOTUSblog", "url": "https://www.scotusblog.com/2026/06/court-allows-trump-to-fire-ftc-commissioner-and-overturns-major-restraint-on-presidential-power/" },
-                { "label": "noyb.eu", "url": "https://noyb.eu/en/us-supreme-court-just-blew-eu-us-data-transfers" },
-                { "label": "Rozhodnutie o primeranosti (EU) 2023/1795", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023D1795" },
-                { "label": "Rámec EÚ–USA na ochranu dát", "url": "https://en.wikipedia.org/wiki/EU%E2%80%93US_Data_Privacy_Framework" }
+                {
+                    "label": "SCOTUSblog",
+                    "url": "https://www.scotusblog.com/2026/06/court-allows-trump-to-fire-ftc-commissioner-and-overturns-major-restraint-on-presidential-power/"
+                },
+                {
+                    "label": "noyb.eu",
+                    "url": "https://noyb.eu/en/us-supreme-court-just-blew-eu-us-data-transfers"
+                },
+                {
+                    "label": "Rozhodnutie o primeranosti (EU) 2023/1795",
+                    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023D1795"
+                },
+                {
+                    "label": "Rámec EÚ–USA na ochranu dát",
+                    "url": "https://en.wikipedia.org/wiki/EU%E2%80%93US_Data_Privacy_Framework"
+                }
             ]
         },
         "services": {
             "eyebrow": "01 // Čo robíme",
             "title": "Infraštruktúra — zmigrovaná a zabezpečená.",
             "items": [
-                { "title": "Migrácia infraštruktúry", "body": "Cloud-to-cloud, z on-prem do cloudu alebo odchod z dátového centra — zmapované, zapísané do Terraform/IaC a prepnuté s minimálnym výpadkom." },
-                { "title": "DevSecOps pipeliny", "body": "CI/CD s bezpečnosťou ako bránou, nie dodatočným krokom: SAST/DAST, SBOM, skenovanie tajomstiev a závislostí a policy-as-code." },
-                { "title": "Platforma a spoľahlivosť (SRE)", "body": "Observability, autoscaling a prevádzka pripravená na incidenty — pre dostupnosť a pokojné on-call služby." },
-                { "title": "Pripravené na súlad", "body": "Dáta v EÚ, dátové toky v súlade s GDPR, auditné záznamy a kontroly mapované na očakávania ISO 27001 / SOC 2." }
+                {
+                    "title": "Migrácia infraštruktúry",
+                    "body": "Cloud-to-cloud, z on-prem do cloudu alebo odchod z dátového centra — zmapované, zapísané do Terraform/IaC a prepnuté s minimálnym výpadkom."
+                },
+                {
+                    "title": "DevSecOps pipeliny",
+                    "body": "CI/CD s bezpečnosťou ako bránou, nie dodatočným krokom: SAST/DAST, SBOM, skenovanie tajomstiev a závislostí a policy-as-code."
+                },
+                {
+                    "title": "Platforma a spoľahlivosť (SRE)",
+                    "body": "Observability, autoscaling a prevádzka pripravená na incidenty — pre dostupnosť a pokojné on-call služby."
+                },
+                {
+                    "title": "Pripravené na súlad",
+                    "body": "Dáta v EÚ, dátové toky v súlade s GDPR, auditné záznamy a kontroly mapované na očakávania ISO 27001 / SOC 2."
+                }
             ]
         },
         "process": {
             "eyebrow": "03 // Ako to funguje",
             "title": "Migračná cesta, ktorú vidíte od začiatku do konca.",
             "steps": [
-                { "t": "Analýza", "d": "Zmapujeme vaše prostredie, riziká a migračnú cestu." },
-                { "t": "Migrácia", "d": "Zapíšeme do kódu a presunieme workloady cez IaC; prepnutie bez výpadku." },
-                { "t": "Zabezpečenie", "d": "Zabudujeme bezpečnosť a súlad priamo do pipeline." },
-                { "t": "Prevádzka", "d": "Observability, SRE postupy a čisté odovzdanie. Vlastníte to vy." }
+                {
+                    "t": "Analýza",
+                    "d": "Zmapujeme vaše prostredie, riziká a migračnú cestu."
+                },
+                {
+                    "t": "Migrácia",
+                    "d": "Zapíšeme do kódu a presunieme workloady cez IaC; prepnutie bez výpadku."
+                },
+                {
+                    "t": "Zabezpečenie",
+                    "d": "Zabudujeme bezpečnosť a súlad priamo do pipeline."
+                },
+                {
+                    "t": "Prevádzka",
+                    "d": "Observability, SRE postupy a čisté odovzdanie. Vlastníte to vy."
+                }
             ]
         },
         "expert": {
@@ -417,7 +585,10 @@
             "title": "infra.euhub-ai.com čoskoro spúšťame.",
             "body": "Pridajte sa do waitlistu pre skorý prístup k migrácii infraštruktúry a DevSecOps na európskej úrovni."
         },
-        "footerLinks": { "back": "← Späť na euhub-ai.com", "privacy": "Súkromie" },
+        "footerLinks": {
+            "back": "← Späť na euhub-ai.com",
+            "privacy": "Súkromie"
+        },
         "meta": {
             "title": "Migrácia infraštruktúry a DevSecOps | EuHub AI",
             "description": "Cloudová migrácia a DevSecOps pre EÚ: infraštruktúra ako kód, ktorú vlastníte, bezpečnosť v každej pipeline, dáta v EÚ a žiadny vendor lock-in. Pridajte sa do waitlistu."

@@ -129,47 +129,176 @@
     "tag": "Capabilities",
     "title": "Engineered For Enterprise",
     "agentTitle": "Autonomous AI Assistants",
-    "agentDesc": "Deploy agents that execute multi-step operations like invoice processing, tier-1 support, and data aggregation entirely on their own.",
+    "agentDesc": "Five specialised agents run the operation and coordinate it among themselves — bot to bot. You step in only for the decisions that matter.",
     "demo": {
-      "attribution": "Real scenes from our autonomous fleet-ops product,",
+      "attribution": "Demo scenes from FAIA (Fleet AI Assistant), the multi-agent core of",
+      "groupName": "FAIA · Fleet Ops",
+      "groupSub": "5 agents + you",
       "scenes": [
-        { "id": "invoices", "title": "Invoice processing", "messages": [
-          { "role": "manager", "from": "You", "text": "Can you process the Q3 invoices?" },
-          { "role": "finance", "from": "Finance", "text": "Processing 412 invoices. Validating against ERP…" },
-          { "role": "finance", "from": "Finance", "text": "Done. 410 approved, 2 flagged for review." }
-        ]},
-        { "id": "briefing", "title": "Morning briefing", "messages": [
-          { "role": "dispatcher", "from": "Dispatcher", "text": "☕ Morning briefing — 40 trucks, 38 active trips. 3 decisions need you today." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "Overnight fuel anomaly on one truck · 2 invoices overdue (€3,240) · 1 unassigned load." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "I handled 32 routine trips myself. Coffee?" }
-        ]},
-        { "id": "fuel-fraud", "title": "Fuel-fraud catch", "messages": [
-          { "role": "telemetry", "from": "Telemetry", "text": "⚠️ Truck TD118BA — 55 L/100km vs 30 norm at 02:15. Off-profile." },
-          { "role": "lokator", "from": "Locator", "text": "GPS × fuel-card × CMR: 18-min stop off-route, card drew +72 L, cargo unchanged." },
-          { "role": "finance", "from": "Finance", "text": "Estimated loss ≈ €600/month if it repeats." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "Above my mandate — escalating for your decision: block card / call driver?" }
-        ]},
-        { "id": "cold-chain", "title": "Cold-chain exception", "messages": [
-          { "role": "telemetry", "from": "Telemetry", "text": "⚠️ Return-air +9.1°C for 7 min (limit +8°C) near Vienna." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "Calling the driver now. ETA unaffected — watching the temperature recover." }
-        ]},
-        { "id": "theft", "title": "Cargo-theft alert", "messages": [
-          { "role": "lokator", "from": "Locator", "text": "🚨 TD118BA — 22-min unplanned stop off the planned corridor." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "Risk: 18.5t chilled load. Contacting the driver." },
-          { "role": "driver", "from": "Driver", "text": "All good — mandatory EU 561 break. Trailer locked, seal intact." },
-          { "role": "lokator", "from": "Locator", "text": "Cross-checked: matches required rest, no door event. Cleared. ✅" }
-        ]},
-        { "id": "compliance", "title": "Compliance guard", "messages": [
-          { "role": "driver", "from": "Driver", "text": "Unloaded, CMR signed, temperature log clean." },
-          { "role": "finance", "from": "Finance", "text": "Invoice generated, €2,275.50, due in 21 days." },
-          { "role": "lokator", "from": "Locator", "text": "⚠️ EU 561: 7h45m driven — both next loads would breach the daily limit. Rest 11h." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "Rest scheduled, books closed. No Friday call to accounting." }
-        ]},
-        { "id": "weekend", "title": "Weekend autonomy", "messages": [
-          { "role": "dispatcher", "from": "Dispatcher", "text": "🤖 Weekend mode — manager off. Holding first-line operations." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "6 trips completed, 1 load auto-assigned within mandate, 1 false alarm cleared." },
-          { "role": "dispatcher", "from": "Dispatcher", "text": "Monday: one summary instead of 47 notifications." }
-        ]}
+        {
+          "id": "briefing",
+          "title": "Morning briefing",
+          "messages": [
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "☕ Morning briefing — 40 trucks, 38 active trips, 6 deliveries before noon."
+            },
+            {
+              "role": "telemetry",
+              "from": "Forecast",
+              "text": "Fleet health: 37 green. TD204CK front-axle sensor drifting — service due in ~800 km."
+            },
+            {
+              "role": "finance",
+              "from": "Finance",
+              "text": "2 invoices overdue (€3,240). Payment-reminder drafts ready for your sign-off."
+            },
+            {
+              "role": "lokator",
+              "from": "Guardian",
+              "text": "Thursday load still unassigned — 3 trucks fit by route and rest windows."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "I handled 32 routine trips overnight. Three things need you: reminders, the Thursday load, the service slot."
+            },
+            {
+              "role": "manager",
+              "from": "You",
+              "text": "Send the reminders. Book the service for Friday."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Done — reminders out, service booked. Thursday load: shortlist coming."
+            }
+          ]
+        },
+        {
+          "id": "cold-chain",
+          "title": "Cold-chain exception",
+          "messages": [
+            {
+              "role": "telemetry",
+              "from": "Forecast",
+              "text": "⚠️ Return-air +9.1°C for 7 min (limit +8°C) near Vienna. Pharma load, narrow tolerance."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Calling the driver. Holding the consignee ETA notice until we know more."
+            },
+            {
+              "role": "driver",
+              "from": "Driver",
+              "text": "Door stood open at the loading dock longer than planned. Closed now, unit on full power."
+            },
+            {
+              "role": "telemetry",
+              "from": "Forecast",
+              "text": "Temperature falling — +8.4°C… +7.9°C. Back inside the band in ~4 min."
+            },
+            {
+              "role": "lokator",
+              "from": "Guardian",
+              "text": "ETA unaffected. No further stops before delivery."
+            },
+            {
+              "role": "finance",
+              "from": "Finance",
+              "text": "Excursion logged: 7 min, peak +9.1°C, cause and correction documented for the batch record."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Consignee notified with the full log. No claim exposure — the evidence trail is complete."
+            }
+          ]
+        },
+        {
+          "id": "compliance",
+          "title": "Compliance guard",
+          "messages": [
+            {
+              "role": "driver",
+              "from": "Driver",
+              "text": "Unloaded, CMR signed, temperature log clean."
+            },
+            {
+              "role": "finance",
+              "from": "Finance",
+              "text": "Invoice generated — €2,275.50, due in 21 days, attached to the CMR."
+            },
+            {
+              "role": "lokator",
+              "from": "Guardian",
+              "text": "⚠️ EU 561: 7h45m driven today — both follow-up loads would breach the daily limit."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Checking alternatives… load 1 shifts to TD117AZ — 40 min away, fresh hours."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Load 2 holds until 06:00 tomorrow, still inside the customer’s window. No penalty triggered."
+            },
+            {
+              "role": "driver",
+              "from": "Driver",
+              "text": "11h rest scheduled. Confirmed."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Books closed: delivered, invoiced, compliant. No Friday call to accounting."
+            }
+          ]
+        },
+        {
+          "id": "weekend",
+          "title": "Weekend autonomy",
+          "messages": [
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "🤖 Weekend mode — manager offline. Holding first-line operations within mandate."
+            },
+            {
+              "role": "telemetry",
+              "from": "Forecast",
+              "text": "Sat 03:12 — reefer deviation on TD118BA. Resolved in 9 min, logged."
+            },
+            {
+              "role": "lokator",
+              "from": "Guardian",
+              "text": "Sat 14:30 — unplanned stop, cross-checked against rest rules: legitimate break. Cleared."
+            },
+            {
+              "role": "finance",
+              "from": "Finance",
+              "text": "Sun — 4 PODs matched, 4 invoices queued for Monday. One rate mismatch flagged, not sent."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Urgent load offer came in. Within mandate: accepted, assigned, customer confirmed."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "One request exceeded mandate (new route, new client) — parked for your Monday review."
+            },
+            {
+              "role": "dispatcher",
+              "from": "Dispatcher",
+              "text": "Monday 07:30: one summary, two decisions. Instead of 47 notifications."
+            }
+          ]
+        }
       ]
     },
     "items": [
@@ -280,21 +409,36 @@
         "price": "Fixed-fee",
         "timeline": "~2 weeks",
         "summary": "Know exactly where AI pays off — before you invest.",
-        "deliverables": ["Risk register & opportunity map", "ROI model", "Reference architecture plan", "EU AI Act & GDPR compliance check"]
+        "deliverables": [
+          "Risk register & opportunity map",
+          "ROI model",
+          "Reference architecture plan",
+          "EU AI Act & GDPR compliance check"
+        ]
       },
       {
         "name": "Pilot",
         "price": "Fixed-scope",
         "timeline": "~4 weeks",
         "summary": "A working MVP, proven against real success criteria.",
-        "deliverables": ["Functional MVP agent / workflow", "Success metrics & evaluation set", "Rollback plan", "Go / no-go decision pack"]
+        "deliverables": [
+          "Functional MVP agent / workflow",
+          "Success metrics & evaluation set",
+          "Rollback plan",
+          "Go / no-go decision pack"
+        ]
       },
       {
         "name": "Scale",
         "price": "Custom retainer",
         "timeline": "Ongoing",
         "summary": "Production deployment you can rely on.",
-        "deliverables": ["Full integration & rollout", "SLA / SLOs & monitoring", "Incident response", "Security review"]
+        "deliverables": [
+          "Full integration & rollout",
+          "SLA / SLOs & monitoring",
+          "Incident response",
+          "Security review"
+        ]
       }
     ]
   },
@@ -330,7 +474,10 @@
     "items": []
   },
   "infra": {
-    "nav": { "back": "euhub-ai.com", "waitlist": "Join the waitlist" },
+    "nav": {
+      "back": "euhub-ai.com",
+      "waitlist": "Join the waitlist"
+    },
     "hero": {
       "eyebrow": "Infrastructure migration · DevSecOps",
       "titleLead": "Migrate with confidence.",
@@ -363,30 +510,66 @@
       ],
       "sourcesLabel": "Sources:",
       "sources": [
-        { "label": "SCOTUSblog", "url": "https://www.scotusblog.com/2026/06/court-allows-trump-to-fire-ftc-commissioner-and-overturns-major-restraint-on-presidential-power/" },
-        { "label": "noyb.eu", "url": "https://noyb.eu/en/us-supreme-court-just-blew-eu-us-data-transfers" },
-        { "label": "EU adequacy decision (EU) 2023/1795", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023D1795" },
-        { "label": "EU–US Data Privacy Framework", "url": "https://en.wikipedia.org/wiki/EU%E2%80%93US_Data_Privacy_Framework" }
+        {
+          "label": "SCOTUSblog",
+          "url": "https://www.scotusblog.com/2026/06/court-allows-trump-to-fire-ftc-commissioner-and-overturns-major-restraint-on-presidential-power/"
+        },
+        {
+          "label": "noyb.eu",
+          "url": "https://noyb.eu/en/us-supreme-court-just-blew-eu-us-data-transfers"
+        },
+        {
+          "label": "EU adequacy decision (EU) 2023/1795",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023D1795"
+        },
+        {
+          "label": "EU–US Data Privacy Framework",
+          "url": "https://en.wikipedia.org/wiki/EU%E2%80%93US_Data_Privacy_Framework"
+        }
       ]
     },
     "services": {
       "eyebrow": "01 // What we do",
       "title": "Infrastructure, migrated and hardened.",
       "items": [
-        { "title": "Infrastructure migration", "body": "Cloud-to-cloud, on-prem to cloud, or data-centre exit — mapped, codified in Terraform/IaC, and cut over with minimal downtime." },
-        { "title": "DevSecOps pipelines", "body": "CI/CD with security as a gate, not an afterthought: SAST/DAST, SBOMs, secret and dependency scanning, and policy-as-code." },
-        { "title": "Platform & reliability (SRE)", "body": "Observability, autoscaling, and incident-ready operations — built for uptime and on-call sanity." },
-        { "title": "Compliance-ready by default", "body": "EU data residency, GDPR-aligned data flows, audit trails, and controls mapped to ISO 27001 / SOC 2 expectations." }
+        {
+          "title": "Infrastructure migration",
+          "body": "Cloud-to-cloud, on-prem to cloud, or data-centre exit — mapped, codified in Terraform/IaC, and cut over with minimal downtime."
+        },
+        {
+          "title": "DevSecOps pipelines",
+          "body": "CI/CD with security as a gate, not an afterthought: SAST/DAST, SBOMs, secret and dependency scanning, and policy-as-code."
+        },
+        {
+          "title": "Platform & reliability (SRE)",
+          "body": "Observability, autoscaling, and incident-ready operations — built for uptime and on-call sanity."
+        },
+        {
+          "title": "Compliance-ready by default",
+          "body": "EU data residency, GDPR-aligned data flows, audit trails, and controls mapped to ISO 27001 / SOC 2 expectations."
+        }
       ]
     },
     "process": {
       "eyebrow": "03 // How it works",
       "title": "A migration path you can see end to end.",
       "steps": [
-        { "t": "Assess", "d": "Map your estate, risks, and the migration path." },
-        { "t": "Migrate", "d": "Codify and move workloads with IaC; zero-downtime cutover." },
-        { "t": "Harden", "d": "Build security and compliance into the pipeline." },
-        { "t": "Operate", "d": "Observability, SRE practices, and clean handover. You own it." }
+        {
+          "t": "Assess",
+          "d": "Map your estate, risks, and the migration path."
+        },
+        {
+          "t": "Migrate",
+          "d": "Codify and move workloads with IaC; zero-downtime cutover."
+        },
+        {
+          "t": "Harden",
+          "d": "Build security and compliance into the pipeline."
+        },
+        {
+          "t": "Operate",
+          "d": "Observability, SRE practices, and clean handover. You own it."
+        }
       ]
     },
     "expert": {
@@ -402,7 +585,10 @@
       "title": "infra.euhub-ai.com is launching soon.",
       "body": "Join the waitlist for early access to EU-grade infrastructure migration and DevSecOps."
     },
-    "footerLinks": { "back": "← Back to euhub-ai.com", "privacy": "Privacy" },
+    "footerLinks": {
+      "back": "← Back to euhub-ai.com",
+      "privacy": "Privacy"
+    },
     "meta": {
       "title": "Infrastructure Migration & DevSecOps | EuHub AI",
       "description": "Cloud migration and DevSecOps for the EU: infrastructure-as-code you own, security baked into every pipeline, EU data residency, and zero lock-in. Join the waitlist."
