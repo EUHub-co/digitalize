@@ -145,11 +145,11 @@
         {
           "time": "07:42:11",
           "title": "Bestandsprüfung: 3 von 4 Positionen im Lager Trnava",
-          "detail": "1 im Rückstand — verfügbar 10.07."
+          "detail": "1 Position im Lieferrückstand — verfügbar ab 10.07."
         },
         {
           "time": "07:42:14",
-          "title": "Auftragsbestätigung entworfen (DE)",
+          "title": "Auftragsbestätigung auf Deutsch vorbereitet",
           "detail": "mit Option auf Teillieferung"
         },
         {
@@ -165,15 +165,15 @@
       "stats": [
         {
           "value": "27",
-          "label": "Aufträge heute verarbeitet"
+          "label": "Aufträge heute bearbeitet"
         },
         {
           "value": "4",
-          "label": "brauchten einen Menschen"
+          "label": "an die Dispo übergeben"
         },
         {
           "value": "38 s",
-          "label": "mittlere Bearbeitungszeit"
+          "label": "Ø Bearbeitungszeit pro Auftrag"
         }
       ],
       "simulatedTag": "Simuliertes Beispiel",
