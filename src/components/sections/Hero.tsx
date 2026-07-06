@@ -53,12 +53,13 @@ export const Hero = ({ lang, dict }: { lang: string, dict: any }) => {
                         {dict.hero?.subtitle || 'We audit your infrastructure and deploy custom autonomous web-apps that cut operational friction by up to 40%.'}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-5 pt-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-5 pt-4">
                         <a href="#contact" className="btn btn-primary text-lg px-10 py-4 shadow-[0_0_20px_rgba(0,229,255,0.3)]">
                             {dict.hero?.primaryCta || 'Initiate AI Audit'}
                         </a>
-                        <a href="#engineering" className="btn btn-ghost text-lg px-10 py-4 backdrop-blur-sm">
-                            {dict.hero?.secondaryCta || 'Explore Custom Web-Apps'}
+                        <a href="#engineering" className="group self-start sm:self-auto inline-flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                            <span className="group-hover:underline underline-offset-4">{dict.hero?.secondaryCta || 'Or explore custom web-apps'}</span>
+                            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                         </a>
                     </div>
                 </div>
@@ -72,26 +73,26 @@ export const Hero = ({ lang, dict }: { lang: string, dict: any }) => {
                                 <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                                 <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                             </div>
-                            <div className="text-xs text-slate-400 font-mono uppercase tracking-widest">{dict.hero?.terminal?.header || 'diagnostic_node.ts'}</div>
+                            <div className="text-xs text-slate-400 font-mono uppercase tracking-widest">{dict.hero?.terminal?.header || 'ops_audit.ts'}</div>
                         </div>
 
                         <div className="space-y-5 font-mono text-sm min-h-[220px]">
                             {step >= 1 && (
                                 <div className="flex justify-between items-center group cursor-default animate-[fade-in-up_0.3s_ease-out_forwards]">
-                                    <span className="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{dict.hero?.terminal?.step1 || 'Establishing root access...'}</span>
-                                    <span className="text-[var(--accent)] text-xs border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2 py-0.5 rounded">{dict.hero?.terminal?.step1Status || 'CONNECTED'}</span>
+                                    <span className="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{dict.hero?.terminal?.step1 || 'Mapping order-to-invoice workflow...'}</span>
+                                    <span className="text-[var(--accent)] text-xs border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2 py-0.5 rounded">{dict.hero?.terminal?.step1Status || 'MANUAL HANDOFFS: 7'}</span>
                                 </div>
                             )}
                             {step >= 2 && (
                                 <div className="flex justify-between items-center group cursor-default animate-[fade-in-up_0.3s_ease-out_forwards]">
-                                    <span className="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{dict.hero?.terminal?.step2 || 'Scanning fragmented data silos...'}</span>
-                                    <span className="text-[var(--accent)] text-xs border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2 py-0.5 rounded">{dict.hero?.terminal?.step2Status || 'VULNERABILITIES: 12'}</span>
+                                    <span className="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{dict.hero?.terminal?.step2 || 'Locating repetitive manual tasks...'}</span>
+                                    <span className="text-[var(--accent)] text-xs border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2 py-0.5 rounded">{dict.hero?.terminal?.step2Status || 'RECOVERABLE: 9 HRS/WEEK'}</span>
                                 </div>
                             )}
                             {step >= 3 && (
                                 <div className="flex justify-between items-center group cursor-default animate-[fade-in-up_0.3s_ease-out_forwards]">
-                                    <span className="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{dict.hero?.terminal?.step3 || 'Synthesizing workflow optimization...'}</span>
-                                    <span className="text-[var(--primary)] text-xs animate-pulse">{dict.hero?.terminal?.step3Status || 'PROCESSING'}</span>
+                                    <span className="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{dict.hero?.terminal?.step3 || 'Drafting automation roadmap...'}</span>
+                                    <span className="text-[var(--primary)] text-xs animate-pulse">{dict.hero?.terminal?.step3Status || 'READY'}</span>
                                 </div>
                             )}
                             {step < 3 && step > 0 && (

@@ -11,15 +11,15 @@
     "subtitle": "Stop guessing where AI fits into your operations. Our diagnostic audit pinpoints exact bottlenecks and automation opportunities before you invest.",
     "cta": "Get a Free Audit",
     "primaryCta": "Initiate Audit",
-    "secondaryCta": "Explore Custom Web-Apps",
+    "secondaryCta": "Or explore custom web-apps",
     "terminal": {
-      "header": "diagnostic_node.ts",
-      "step1": "Establishing root access...",
-      "step1Status": "CONNECTED",
-      "step2": "Scanning fragmented data silos...",
-      "step2Status": "VULNERABILITIES: 12",
-      "step3": "Synthesizing workflow optimization...",
-      "step3Status": "PROCESSING",
+      "header": "ops_audit.ts",
+      "step1": "Mapping order-to-invoice workflow...",
+      "step1Status": "MANUAL HANDOFFS: 7",
+      "step2": "Locating repetitive manual tasks...",
+      "step2Status": "RECOVERABLE: 9 HRS/WEEK",
+      "step3": "Drafting automation roadmap...",
+      "step3Status": "READY",
       "comment": "// Projected Efficiency Delta",
       "delta": "+42%",
       "label": "operational bandwidth"
@@ -134,6 +134,8 @@
       "attribution": "Demo scenes from FAIA (Fleet AI Assistant), the multi-agent core of",
       "groupName": "FAIA · Fleet Ops",
       "groupSub": "5 agents + you",
+      "ctaText": "Want an agent team like this running your operation?",
+      "ctaButton": "Get the free audit",
       "scenes": [
         {
           "id": "briefing",
@@ -467,11 +469,24 @@
   "caseStudies": {
     "tag": "Proof",
     "title": "Outcomes, not slideware",
-    "subtitle": "Selected engagements and the measurable results they delivered. Full details shared under NDA on request.",
+    "subtitle": "Selected engagements — what we built and what it changed. Full details shared under NDA on request.",
     "challengeLabel": "Challenge",
     "approachLabel": "What we built",
     "resultLabel": "Result",
-    "items": []
+    "proofPoints": [
+      "5 specialised agents in a live demo",
+      "3 languages · 3 markets (EN/SK/DE)",
+      "EU-hosted (europe-west1)"
+    ],
+    "items": [
+      {
+        "client": "LKW-Control × FAIA",
+        "sector": "Fleet operations · Road freight",
+        "challenge": "LKW-Control (lkw-control.com) is a fleet-operations product for trucking companies with one clear pitch: stop diesel losses. Day-to-day fleet operations, though, span dispatch, telemetry, cold-chain monitoring, finance and driver communication — more parallel channels than any one owner can watch.",
+        "approach": "For client Medical Logistic we built FAIA (Fleet AI Assistant), the multi-agent core of LKW-Control: five specialised Telegram bots covering dispatch, telemetry & forecasting, monitoring & cold-chain watch, finance & documents, and driver communication. The bots coordinate with each other — bot to bot — in one shared group chat.",
+        "result": "A five-agent team coordinates dispatch, forecasting, cold-chain watch, finance checks and driver communication in a single chat, demoed live in a real Telegram group. The owner steps in only for the decisions that matter."
+      }
+    ]
   },
   "infra": {
     "nav": {

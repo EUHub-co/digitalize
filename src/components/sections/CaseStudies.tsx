@@ -9,6 +9,15 @@ export const CaseStudies = ({ lang, dict }: { lang: string, dict: any }) => {
     const items = dict.caseStudies?.items || [];
     if (!items.length) return null;
 
+    // Proof strip: short, owner-verifiable facts only — never projections.
+    const proofPoints: string[] = dict.caseStudies?.proofPoints?.length
+        ? dict.caseStudies.proofPoints
+        : [
+            '5 specialised agents in a live demo',
+            '3 languages · 3 markets (EN/SK/DE)',
+            'EU-hosted (europe-west1)',
+        ];
+
     return (
         <section id="case-studies" className="relative py-24 bg-[var(--background)]">
             <div className="container mx-auto px-4">
@@ -25,6 +34,17 @@ export const CaseStudies = ({ lang, dict }: { lang: string, dict: any }) => {
                         </p>
                     )}
                 </div>
+
+                {/* Proof strip — lives inside the items guard above, so it can
+                    never render without at least one real case study. */}
+                <ul role="list" className="flex flex-wrap items-center gap-x-10 gap-y-3 border-y border-[var(--card-border)] py-4 mb-12">
+                    {proofPoints.map((point, i) => (
+                        <li key={i} className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest text-[var(--muted-foreground)]">
+                            <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--primary)]" />
+                            {point}
+                        </li>
+                    ))}
+                </ul>
 
                 <div role="list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {items.map((item: any, i: number) => (

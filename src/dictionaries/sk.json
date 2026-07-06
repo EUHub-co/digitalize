@@ -9,17 +9,17 @@
         "badge": "PARTNER PRE PODNIKOVÉ INTEGRÁCIE AI",
         "title": "Vyriešime vaše problémy pomocou AI.",
         "subtitle": "Prestaňte hádať, kam AI patrí. Náš audit presne identifikuje vaše slabé miesta a príležitosti na automatizáciu ešte pred vašou investíciou.",
-        "cta": "Získať Audit Zadarmo",
+        "cta": "Získať audit zadarmo",
         "primaryCta": "Začať audit",
-        "secondaryCta": "Preskúmať riešenia",
+        "secondaryCta": "Alebo si pozrite webové aplikácie na mieru",
         "terminal": {
-            "header": "diagnostic_node.ts",
-            "step1": "Nadväzovanie prístupu root...",
-            "step1Status": "PRIPOJENÉ",
-            "step2": "Skenovanie fragmentovaných dátových síl...",
-            "step2Status": "ZRANITEĽNOSTI: 12",
-            "step3": "Syntetizovanie optimalizácie pracovných tokov...",
-            "step3Status": "SPRACOVÁVA SA",
+            "header": "ops_audit.ts",
+            "step1": "Mapovanie procesu od objednávky po faktúru...",
+            "step1Status": "MANUÁLNE KROKY: 7",
+            "step2": "Hľadanie opakujúcich sa manuálnych úloh...",
+            "step2Status": "ÚSPORA: 9 HOD./TÝŽDEŇ",
+            "step3": "Zostavovanie plánu automatizácie...",
+            "step3Status": "PRIPRAVENÉ",
             "comment": "// Predpokladaný nárast efektivity",
             "delta": "+42%",
             "label": "prevádzková priepustnosť"
@@ -35,7 +35,7 @@
         "title": "Riešenia s merateľnou návratnosťou",
         "items": [
             {
-                "title": "Digitálny Audit",
+                "title": "Digitálny audit",
                 "desc": "Zistite presne, kde vaša firma stráca peniaze. Identifikujeme procesy vhodné na automatizáciu a vypočítame návratnosť investície."
             },
             {
@@ -134,6 +134,8 @@
             "attribution": "Demo scény z FAIA (Fleet AI Assistant), multiagentného jadra produktu",
             "groupName": "FAIA · Fleet Ops",
             "groupSub": "5 agentov + vy",
+            "ctaText": "Chcete, aby takýto tím agentov riadil aj vašu prevádzku?",
+            "ctaButton": "Získať audit zadarmo",
             "scenes": [
                 {
                     "id": "briefing",
@@ -178,7 +180,7 @@
                 },
                 {
                     "id": "cold-chain",
-                    "title": "Výnimka chladiaceho reťazca",
+                    "title": "Výnimka chladiarenského reťazca",
                     "messages": [
                         {
                             "role": "telemetry",
@@ -467,11 +469,24 @@
     "caseStudies": {
         "tag": "Dôkazy",
         "title": "Výsledky, nie prezentácie",
-        "subtitle": "Vybrané projekty a merateľné výsledky, ktoré priniesli. Úplné detaily poskytneme na požiadanie pod NDA.",
+        "subtitle": "Vybrané projekty — čo sme postavili a čo to zmenilo. Všetky podrobnosti poskytneme na požiadanie po podpise NDA.",
         "challengeLabel": "Výzva",
         "approachLabel": "Čo sme postavili",
         "resultLabel": "Výsledok",
-        "items": []
+        "proofPoints": [
+            "5 špecializovaných agentov v živom deme",
+            "3 jazyky · 3 trhy (EN/SK/DE)",
+            "Hosting v EÚ (europe-west1)"
+        ],
+        "items": [
+            {
+                "client": "LKW-Control × FAIA",
+                "sector": "Riadenie flotily · Kamiónová doprava",
+                "challenge": "LKW-Control (lkw-control.com) je produkt na riadenie flotily pre kamiónových dopravcov s jasným sľubom: zastaviť straty nafty. Každodenná prevádzka flotily však zahŕňa dispečing, telemetriu, stráženie chladiarenského reťazca, financie aj komunikáciu s vodičmi — viac paralelných kanálov, než dokáže jeden majiteľ zvládnuť.",
+                "approach": "Pre klienta Medical Logistic sme postavili FAIA (Fleet AI Assistant), multiagentné jadro LKW-Control: päť špecializovaných botov v Telegrame — dispečing, telemetria a prognózy, monitoring a stráženie chladiarenského reťazca, financie a doklady, komunikácia s vodičmi — ktoré sa navzájom koordinujú, bot s botom, v jednom skupinovom chate.",
+                "result": "Päťčlenný tím agentov koordinuje dispečing, prognózy, stráženie chladiarenského reťazca, finančné kontroly aj komunikáciu s vodičmi v jedinom chate — naživo predvádzaný v reálnej telegramovej skupine. Majiteľ zasahuje len pri rozhodnutiach, na ktorých záleží."
+            }
+        ]
     },
     "infra": {
         "nav": {
@@ -610,9 +625,9 @@
     "contactSection": {
         "directLine": "Priama linka",
         "intro": "Nečakajte, kým vás predbehne konkurencia. Získajte audit vašej infraštruktúry a zistite, kde strácate peniaze.",
-        "successTitle": "Audit Inicializovaný",
+        "successTitle": "Audit inicializovaný",
         "successBody": "Naši inžinieri analyzujú vašu požiadavku. Ozveme sa vám do 24 hodín.",
-        "formTitle": "Žiadosť o Audit",
+        "formTitle": "Žiadosť o audit",
         "nameLabel": "Meno / Spoločnosť",
         "namePlaceholder": "Váš identifikačný údaj",
         "emailLabel": "Pracovný Email",
@@ -722,7 +737,7 @@
             },
             {
                 "heading": "2. Údaje, ktoré zhromažďujeme a účel spracovania",
-                "content": "Osobné údaje zhromažďujeme striktne v súlade so zásadami minimalizácie údajov a obmedzenia účelu.\n\nŽiadosti o diagnostický audit: Keď odošlete formulár \"Žiadosť o Audit\", zhromažďujeme váš identifikačný údaj (Meno / Spoločnosť), pracovný email a popis problému (aké systémy potrebujete integrovať). Tieto údaje sa spracúvajú výlučne na vyhodnotenie vašej infraštruktúry a komunikáciu našich zistení (Právny základ: Predzmluvné vzťahy / Oprávnený záujem).\n\nAnalytika webových stránok: Údaje o používaní zhromažďujeme prostredníctvom súborov cookie (pozri [Zásady používania súborov cookie](/sk/cookie)) na zlepšenie architektúry našej stránky a používateľskej skúsenosti."
+                "content": "Osobné údaje zhromažďujeme striktne v súlade so zásadami minimalizácie údajov a obmedzenia účelu.\n\nŽiadosti o diagnostický audit: Keď odošlete formulár \"Žiadosť o audit\", zhromažďujeme váš identifikačný údaj (Meno / Spoločnosť), pracovný email a popis problému (aké systémy potrebujete integrovať). Tieto údaje sa spracúvajú výlučne na vyhodnotenie vašej infraštruktúry a komunikáciu našich zistení (Právny základ: Predzmluvné vzťahy / Oprávnený záujem).\n\nAnalytika webových stránok: Údaje o používaní zhromažďujeme prostredníctvom súborov cookie (pozri [Zásady používania súborov cookie](/sk/cookie)) na zlepšenie architektúry našej stránky a používateľskej skúsenosti."
             },
             {
                 "heading": "3. Transparentnosť AI a automatizované spracovanie (súlad s Aktom EÚ o AI)",
