@@ -123,7 +123,62 @@
                 "title": "Nasadenie a škálovanie",
                 "desc": "Kontajnerizované nasadenie vašej webovej aplikácie s monitoringom a cieľovou dostupnosťou 99,9%."
             }
-        ]
+        ],
+        "audit": {
+            "appTitle": "FAIA — Príjem objednávok",
+            "statePill": "Čaká na schválenie — Dispečing",
+            "connectedLabel": "Prepojené:",
+            "chipErp": "ERP — napr. SAP Business One",
+            "chipAccounting": "Účtovníctvo — napr. Pohoda",
+            "chipInbox": "Pošta — Outlook",
+            "steps": [
+                {
+                    "time": "07:42:03",
+                    "title": "Prišiel e-mail s objednávkou",
+                    "detail": "veľkoobchod s obalmi (DE) — PDF v prílohe, 4 položky"
+                },
+                {
+                    "time": "07:42:08",
+                    "title": "Položky spracované, dodanie 14. 7.",
+                    "detail": "priradené k zákazníkovi 10442 v ERP"
+                },
+                {
+                    "time": "07:42:11",
+                    "title": "Kontrola zásob: 3 zo 4 položiek na sklade v Trnave",
+                    "detail": "1 sa doobjednáva — naskladnenie 10. 7."
+                },
+                {
+                    "time": "07:42:14",
+                    "title": "Návrh potvrdenia objednávky (DE)",
+                    "detail": "s možnosťou čiastočného dodania"
+                },
+                {
+                    "time": "07:42:15",
+                    "title": "Eskalované: čiastočná dostupnosť",
+                    "detail": "čaká na schválenie dispečerom"
+                },
+                {
+                    "time": "",
+                    "title": "Odoslať potvrdenie · vystaviť dodací list"
+                }
+            ],
+            "stats": [
+                {
+                    "value": "27",
+                    "label": "objednávok spracovaných dnes"
+                },
+                {
+                    "value": "4",
+                    "label": "potrebovali človeka"
+                },
+                {
+                    "value": "38 s",
+                    "label": "medián spracovania"
+                }
+            ],
+            "simulatedTag": "Simulovaný príklad",
+            "caption": "Tím agentov v pozadí — živé demo nižšie ↓"
+        }
     },
     "features": {
         "tag": "Schopnosti",
