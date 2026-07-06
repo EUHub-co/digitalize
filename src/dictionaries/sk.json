@@ -533,6 +533,10 @@
             "3 jazyky · 3 trhy (EN/SK/DE)",
             "Hosting v EÚ (europe-west1)"
         ],
+        "ghostCta": {
+            "text": "Ďalšia takáto prevádzka môže byť tá vaša.",
+            "button": "Získať audit zadarmo"
+        },
         "items": [
             {
                 "client": "LKW-Control × FAIA",

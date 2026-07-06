@@ -533,6 +533,10 @@
       "3 Sprachen · 3 Märkte (EN/SK/DE)",
       "In der EU gehostet (europe-west1)"
     ],
+    "ghostCta": {
+      "text": "Der nächste Betrieb hier könnte Ihrer sein.",
+      "button": "Kostenloses Audit anfordern"
+    },
     "items": [
       {
         "client": "LKW-Control × FAIA",

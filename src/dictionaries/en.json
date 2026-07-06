@@ -533,6 +533,10 @@
       "3 languages · 3 markets (EN/SK/DE)",
       "EU-hosted (europe-west1)"
     ],
+    "ghostCta": {
+      "text": "Your operation could be the next one here.",
+      "button": "Get the free audit"
+    },
     "items": [
       {
         "client": "LKW-Control × FAIA",
