@@ -46,58 +46,139 @@ export const CaseStudies = ({ lang, dict }: { lang: string, dict: any }) => {
                     ))}
                 </ul>
 
-                <div role="list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {items.map((item: any, i: number) => (
-                        <GlassCard
-                            key={i}
-                            role="listitem"
-                            className="p-8 flex flex-col border border-[var(--card-border)] bg-[var(--card-bg)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40"
-                        >
-                            {item.sector && (
-                                <p className="text-xs font-mono uppercase tracking-widest text-[var(--primary)]">{item.sector}</p>
-                            )}
-                            {item.client && (
-                                <h3 className="text-xl font-bold text-[var(--foreground)] mt-1.5">{item.client}</h3>
-                            )}
+                {items.length === 1 ? (
+                    <FeaturedCaseStudy item={items[0]} dict={dict} />
+                ) : (
+                    <div role="list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {items.map((item: any, i: number) => (
+                            <GlassCard
+                                key={i}
+                                role="listitem"
+                                className="p-8 flex flex-col border border-[var(--card-border)] bg-[var(--card-bg)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40"
+                            >
+                                {item.sector && (
+                                    <p className="text-xs font-mono uppercase tracking-widest text-[var(--primary)]">{item.sector}</p>
+                                )}
+                                {item.client && (
+                                    <h3 className="text-xl font-bold text-[var(--foreground)] mt-1.5">{item.client}</h3>
+                                )}
 
-                            {item.metric && (
-                                <p className="text-3xl font-extrabold text-[var(--primary)] mt-5">{item.metric}</p>
-                            )}
+                                {item.metric && (
+                                    <p className="text-3xl font-extrabold text-[var(--primary)] mt-5">{item.metric}</p>
+                                )}
+                                {item.metricLabel && (
+                                    <p className="text-xs text-[var(--muted-foreground)] uppercase tracking-wider mt-1">{item.metricLabel}</p>
+                                )}
+
+                                {item.challenge && (
+                                    <div className="mt-6">
+                                        <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-1.5">{dict.caseStudies?.challengeLabel || 'Challenge'}</p>
+                                        <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{item.challenge}</p>
+                                    </div>
+                                )}
+                                {item.approach && (
+                                    <div className="mt-4">
+                                        <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-1.5">{dict.caseStudies?.approachLabel || 'What we built'}</p>
+                                        <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{item.approach}</p>
+                                    </div>
+                                )}
+                                {item.result && (
+                                    <div className="mt-4">
+                                        <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-1.5">{dict.caseStudies?.resultLabel || 'Result'}</p>
+                                        <p className="text-sm text-[var(--foreground)] leading-relaxed">{item.result}</p>
+                                    </div>
+                                )}
+
+                                {item.quote && (
+                                    <blockquote className="mt-6 pt-6 border-t border-[var(--card-border)] text-sm italic text-[var(--foreground)] leading-relaxed">
+                                        &ldquo;{item.quote}&rdquo;
+                                        {item.quoteAuthor && (
+                                            <footer className="mt-2 not-italic text-xs text-[var(--muted-foreground)]">&mdash; {item.quoteAuthor}</footer>
+                                        )}
+                                    </blockquote>
+                                )}
+                            </GlassCard>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </section>
+    );
+};
+
+// Single-study layout: full-width, Challenge/What we built/Result as three
+// columns inside one card, so one case study reads as an editorial choice
+// rather than a lonely grid item. Automatically replaced by the grid above
+// the moment a second item is added.
+const FeaturedCaseStudy = ({ item, dict }: { item: any, dict: any }) => {
+    const ghost = dict.caseStudies?.ghostCta || {};
+
+    return (
+        <div role="list">
+            <GlassCard
+                role="listitem"
+                className="p-8 md:p-10 border border-[var(--card-border)] bg-[var(--card-bg)]"
+            >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 pb-6 border-b border-[var(--card-border)]">
+                    <div>
+                        {item.sector && (
+                            <p className="text-xs font-mono uppercase tracking-widest text-[var(--primary)]">{item.sector}</p>
+                        )}
+                        {item.client && (
+                            <h3 className="text-2xl font-bold text-[var(--foreground)] mt-1.5">{item.client}</h3>
+                        )}
+                    </div>
+                    {item.metric && (
+                        <div className="text-right">
+                            <p className="text-3xl font-extrabold text-[var(--primary)]">{item.metric}</p>
                             {item.metricLabel && (
                                 <p className="text-xs text-[var(--muted-foreground)] uppercase tracking-wider mt-1">{item.metricLabel}</p>
                             )}
-
-                            {item.challenge && (
-                                <div className="mt-6">
-                                    <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-1.5">{dict.caseStudies?.challengeLabel || 'Challenge'}</p>
-                                    <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{item.challenge}</p>
-                                </div>
-                            )}
-                            {item.approach && (
-                                <div className="mt-4">
-                                    <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-1.5">{dict.caseStudies?.approachLabel || 'What we built'}</p>
-                                    <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{item.approach}</p>
-                                </div>
-                            )}
-                            {item.result && (
-                                <div className="mt-4">
-                                    <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-1.5">{dict.caseStudies?.resultLabel || 'Result'}</p>
-                                    <p className="text-sm text-[var(--foreground)] leading-relaxed">{item.result}</p>
-                                </div>
-                            )}
-
-                            {item.quote && (
-                                <blockquote className="mt-6 pt-6 border-t border-[var(--card-border)] text-sm italic text-[var(--foreground)] leading-relaxed">
-                                    &ldquo;{item.quote}&rdquo;
-                                    {item.quoteAuthor && (
-                                        <footer className="mt-2 not-italic text-xs text-[var(--muted-foreground)]">&mdash; {item.quoteAuthor}</footer>
-                                    )}
-                                </blockquote>
-                            )}
-                        </GlassCard>
-                    ))}
+                        </div>
+                    )}
                 </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                    {item.challenge && (
+                        <div>
+                            <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-2">{dict.caseStudies?.challengeLabel || 'Challenge'}</p>
+                            <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{item.challenge}</p>
+                        </div>
+                    )}
+                    {item.approach && (
+                        <div>
+                            <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-2">{dict.caseStudies?.approachLabel || 'What we built'}</p>
+                            <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{item.approach}</p>
+                        </div>
+                    )}
+                    {item.result && (
+                        <div>
+                            <p className="text-[10px] uppercase font-mono tracking-widest text-[var(--muted-foreground)] mb-2">{dict.caseStudies?.resultLabel || 'Result'}</p>
+                            <p className="text-sm text-[var(--foreground)] leading-relaxed">{item.result}</p>
+                        </div>
+                    )}
+                </div>
+
+                {item.quote && (
+                    <blockquote className="mt-8 pt-6 border-t border-[var(--card-border)] text-sm italic text-[var(--foreground)] leading-relaxed">
+                        &ldquo;{item.quote}&rdquo;
+                        {item.quoteAuthor && (
+                            <footer className="mt-2 not-italic text-xs text-[var(--muted-foreground)]">&mdash; {item.quoteAuthor}</footer>
+                        )}
+                    </blockquote>
+                )}
+            </GlassCard>
+
+            {/* Ghost CTA strip — turns the "only one case study" gap into a
+                conversion moment instead of hiding it. */}
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-dashed border-[var(--card-border)] px-6 py-5 sm:px-8">
+                <p className="text-sm text-[var(--muted-foreground)] text-center sm:text-left">
+                    {ghost.text || 'Your operation could be the next one here.'}
+                </p>
+                <a href="#contact" className="btn btn-primary !text-sm !px-5 !py-2 whitespace-nowrap">
+                    {ghost.button || 'Get the free audit'}
+                </a>
             </div>
-        </section>
+        </div>
     );
 };
