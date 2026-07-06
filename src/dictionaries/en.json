@@ -134,6 +134,8 @@
       "attribution": "Demo scenes from FAIA (Fleet AI Assistant), the multi-agent core of",
       "groupName": "FAIA · Fleet Ops",
       "groupSub": "5 agents + you",
+      "ctaText": "Want an agent team like this running your operation?",
+      "ctaButton": "Get the free audit",
       "scenes": [
         {
           "id": "briefing",

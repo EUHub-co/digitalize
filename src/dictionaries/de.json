@@ -134,6 +134,8 @@
       "attribution": "Demo-Szenen aus FAIA (Fleet AI Assistant), dem Multi-Agenten-Kern von",
       "groupName": "FAIA · Fleet Ops",
       "groupSub": "5 Agenten + Sie",
+      "ctaText": "Soll ein Agenten-Team wie dieses auch Ihren Betrieb steuern?",
+      "ctaButton": "Kostenloses Audit anfordern",
       "scenes": [
         {
           "id": "briefing",

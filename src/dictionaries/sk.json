@@ -134,6 +134,8 @@
             "attribution": "Demo scény z FAIA (Fleet AI Assistant), multiagentného jadra produktu",
             "groupName": "FAIA · Fleet Ops",
             "groupSub": "5 agentov + vy",
+            "ctaText": "Chcete, aby takýto tím agentov riadil aj vašu prevádzku?",
+            "ctaButton": "Získať audit zadarmo",
             "scenes": [
                 {
                     "id": "briefing",
