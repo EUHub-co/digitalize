@@ -123,7 +123,62 @@
         "title": "Bereitstellung & Skalierung",
         "desc": "Containerisierte Bereitstellung Ihrer maßgeschneiderten Web-App mit Monitoring und einem Verfügbarkeitsziel von 99,9 %."
       }
-    ]
+    ],
+    "audit": {
+      "appTitle": "FAIA — Auftragseingang",
+      "statePill": "Wartet auf Freigabe — Dispo",
+      "connectedLabel": "Verbunden:",
+      "chipErp": "ERP — z. B. SAP Business One",
+      "chipAccounting": "Buchhaltung — z. B. DATEV",
+      "chipInbox": "Posteingang — Outlook",
+      "steps": [
+        {
+          "time": "07:42:03",
+          "title": "Bestell-E-Mail eingegangen",
+          "detail": "Verpackungsgroßhändler (DE) — PDF im Anhang, 4 Positionen"
+        },
+        {
+          "time": "07:42:08",
+          "title": "Positionen erfasst, Lieferung 14.07.",
+          "detail": "ERP-Kunde 10442 zugeordnet"
+        },
+        {
+          "time": "07:42:11",
+          "title": "Bestandsprüfung: 3 von 4 Positionen im Lager Trnava",
+          "detail": "1 Position im Lieferrückstand — verfügbar ab 10.07."
+        },
+        {
+          "time": "07:42:14",
+          "title": "Auftragsbestätigung auf Deutsch vorbereitet",
+          "detail": "mit Option auf Teillieferung"
+        },
+        {
+          "time": "07:42:15",
+          "title": "Eskaliert: Teilverfügbarkeit",
+          "detail": "wartet auf Freigabe durch die Dispo"
+        },
+        {
+          "time": "",
+          "title": "Bestätigung senden · Lieferschein erstellen"
+        }
+      ],
+      "stats": [
+        {
+          "value": "27",
+          "label": "Aufträge heute bearbeitet"
+        },
+        {
+          "value": "4",
+          "label": "an die Dispo übergeben"
+        },
+        {
+          "value": "38 s",
+          "label": "Ø Bearbeitungszeit pro Auftrag"
+        }
+      ],
+      "simulatedTag": "Simuliertes Beispiel",
+      "caption": "Das Agenten-Team dahinter — Live-Demo weiter unten ↓"
+    }
   },
   "features": {
     "tag": "Fähigkeiten",
