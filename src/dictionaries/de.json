@@ -129,12 +129,12 @@
     "tag": "Fähigkeiten",
     "title": "Entwickelt für Unternehmen",
     "agentTitle": "Autonome KI-Assistenten",
-    "agentDesc": "Fünf spezialisierte Agenten steuern den Betrieb und koordinieren sich untereinander — Bot zu Bot. Sie selbst greifen nur bei den Entscheidungen ein, die zählen.",
+    "agentDesc": "Fünf spezialisierte Agenten steuern das Tagesgeschäft und koordinieren sich untereinander — von Bot zu Bot. Sie selbst greifen nur bei den Entscheidungen ein, die zählen.",
     "demo": {
       "attribution": "Demo-Szenen aus FAIA (Fleet AI Assistant), dem Multi-Agenten-Kern von",
       "groupName": "FAIA · Fleet Ops",
       "groupSub": "5 Agenten + Sie",
-      "ctaText": "Soll ein Agenten-Team wie dieses auch Ihren Betrieb steuern?",
+      "ctaText": "Soll ein Agenten-Team wie dieses auch Ihr Tagesgeschäft steuern?",
       "ctaButton": "Kostenloses Audit anfordern",
       "scenes": [
         {
@@ -469,9 +469,9 @@
   "caseStudies": {
     "tag": "Nachweis",
     "title": "Ergebnisse, keine Foliensätze",
-    "subtitle": "Ausgewählte Projekte und die messbaren Ergebnisse, die sie geliefert haben. Vollständige Details auf Anfrage unter NDA.",
+    "subtitle": "Ausgewählte Projekte — was wir umgesetzt haben und was es verändert hat. Vollständige Details auf Anfrage unter NDA.",
     "challengeLabel": "Herausforderung",
-    "approachLabel": "Was wir gebaut haben",
+    "approachLabel": "Was wir umgesetzt haben",
     "resultLabel": "Ergebnis",
     "proofPoints": [
       "5 spezialisierte Agenten in der Live-Demo",
@@ -482,9 +482,9 @@
       {
         "client": "LKW-Control × FAIA",
         "sector": "Flottenbetrieb · Straßengüterverkehr",
-        "challenge": "LKW-Control (lkw-control.com) ist ein Flottenmanagement-Produkt für Speditionen mit einem klaren Versprechen: Diesel- und Kraftstoffverluste stoppen. Der Flottenalltag umfasst jedoch Disposition, Telemetrie, Kühlketten-Überwachung, Finanzen und Fahrerkommunikation — mehr parallele Kanäle, als ein Inhaber im Blick behalten kann.",
-        "approach": "Für den Kunden Medical Logistic haben wir FAIA (Fleet AI Assistant) gebaut, den Multi-Agenten-Kern von LKW-Control: fünf spezialisierte Telegram-Bots für Disposition, Telemetrie & Prognosen, Monitoring & Kühlketten-Überwachung, Finanzen & Dokumente sowie Fahrerkommunikation. Die Bots koordinieren sich untereinander — Bot zu Bot — in einem gemeinsamen Gruppenchat.",
-        "result": "Ein Team aus fünf Agenten koordiniert Disposition, Prognosen, Kühlketten-Überwachung, Finanzprüfungen und Fahrerkommunikation in einem einzigen Chat — live demonstriert in einer echten Telegram-Gruppe. Der Inhaber greift nur bei den Entscheidungen ein, die zählen."
+        "challenge": "LKW-Control (lkw-control.com) ist ein Flottenmanagement-Produkt für Speditionen mit einem klaren Versprechen: Dieselverluste stoppen. Der Flottenalltag umfasst jedoch Disposition, Telemetrie, Kühlketten-Überwachung, Finanzen und Fahrerkommunikation — mehr parallele Kanäle, als ein Inhaber im Blick behalten kann.",
+        "approach": "Für den Kunden Medical Logistic haben wir FAIA (Fleet AI Assistant) entwickelt, den Multi-Agenten-Kern von LKW-Control: fünf spezialisierte Telegram-Bots für Disposition, Telemetrie & Prognosen, Monitoring & Kühlketten-Überwachung, Finanzen & Dokumente sowie Fahrerkommunikation. Die Bots koordinieren sich untereinander — von Bot zu Bot — in einem gemeinsamen Gruppenchat.",
+        "result": "Ein Team aus fünf Agenten koordiniert Disposition, Prognosen, Kühlketten-Überwachung, Rechnungsprüfung und Fahrerkommunikation in einem einzigen Chat — live demonstriert in einer echten Telegram-Gruppe. Der Inhaber greift nur bei den Entscheidungen ein, die zählen."
       }
     ]
   },

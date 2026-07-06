@@ -13,7 +13,7 @@ export const CaseStudies = ({ lang, dict }: { lang: string, dict: any }) => {
     const proofPoints: string[] = dict.caseStudies?.proofPoints?.length
         ? dict.caseStudies.proofPoints
         : [
-            '5 specialised agents in production demo',
+            '5 specialised agents in a live demo',
             '3 languages · 3 markets (EN/SK/DE)',
             'EU-hosted (europe-west1)',
         ];

@@ -469,12 +469,12 @@
   "caseStudies": {
     "tag": "Proof",
     "title": "Outcomes, not slideware",
-    "subtitle": "Selected engagements and the measurable results they delivered. Full details shared under NDA on request.",
+    "subtitle": "Selected engagements — what we built and what it changed. Full details shared under NDA on request.",
     "challengeLabel": "Challenge",
     "approachLabel": "What we built",
     "resultLabel": "Result",
     "proofPoints": [
-      "5 specialised agents in production demo",
+      "5 specialised agents in a live demo",
       "3 languages · 3 markets (EN/SK/DE)",
       "EU-hosted (europe-west1)"
     ],
@@ -482,7 +482,7 @@
       {
         "client": "LKW-Control × FAIA",
         "sector": "Fleet operations · Road freight",
-        "challenge": "LKW-Control (lkw-control.com) is a fleet-operations product for trucking companies with one clear pitch: stop diesel and fuel losses. Day-to-day fleet operations, though, span dispatch, telemetry, cold-chain monitoring, finance and driver communication — more parallel channels than any one owner can watch.",
+        "challenge": "LKW-Control (lkw-control.com) is a fleet-operations product for trucking companies with one clear pitch: stop diesel losses. Day-to-day fleet operations, though, span dispatch, telemetry, cold-chain monitoring, finance and driver communication — more parallel channels than any one owner can watch.",
         "approach": "For client Medical Logistic we built FAIA (Fleet AI Assistant), the multi-agent core of LKW-Control: five specialised Telegram bots covering dispatch, telemetry & forecasting, monitoring & cold-chain watch, finance & documents, and driver communication. The bots coordinate with each other — bot to bot — in one shared group chat.",
         "result": "A five-agent team coordinates dispatch, forecasting, cold-chain watch, finance checks and driver communication in a single chat, demoed live in a real Telegram group. The owner steps in only for the decisions that matter."
       }
