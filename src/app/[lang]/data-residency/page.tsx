@@ -3,7 +3,7 @@ import { getDictionary } from '../../../get-dictionary';
 import Header from '../../../components/layout/Header';
 import { Footer } from '../../../components/layout/Footer';
 import { LegalPage } from '../../../components/legal/LegalPage';
-import { breadcrumbLd } from '../../../lib/seo';
+import { breadcrumbLd, ogLocale } from '../../../lib/seo';
 
 const BASE_URL = 'https://euhub-ai.com';
 
@@ -17,10 +17,11 @@ async function getPage(lang: string) {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const { page } = await getPage(lang);
+  const desc = page.metaDescription ?? page.lastUpdated;
 
   return {
     title: page.title,
-    description: page.lastUpdated,
+    description: desc,
     alternates: {
       canonical: `${BASE_URL}/${lang}/data-residency`,
       languages: {
@@ -32,9 +33,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     openGraph: {
       title: page.title,
-      description: page.lastUpdated,
+      description: desc,
       url: `${BASE_URL}/${lang}/data-residency`,
-      locale: lang,
+      locale: ogLocale(lang),
       images: ['/og.png'],
     },
   };

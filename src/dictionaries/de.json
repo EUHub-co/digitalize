@@ -62,9 +62,9 @@
       },
       {
         "name": "Mike G.",
-        "role": "Founder & Visionary",
-        "badge": "FOUNDER",
-        "url": "https://mike.euhub-ai.com"
+        "role": "AI Operations, Solution Architect",
+        "link": "Linkedin",
+        "url": "https://www.linkedin.com/in/gordievsky/"
       },
       {
         "name": "Kateryna H.",
@@ -501,6 +501,7 @@
   },
   "portability": {
     "title": "Es gehört Ihnen. Keine Anbieterabhängigkeit.",
+    "metaDescription": "Keine Anbieterabhängigkeit: Ihnen gehören Modelle, Daten und Workflows. EuHub AI baut portable KI-Systeme, die Sie jederzeit exportieren und in der EU nutzen.",
     "lastUpdated": "Ihr Wettbewerbsvorteil sollte nicht gemietet sein.",
     "sections": [
       {
@@ -703,6 +704,7 @@
   },
   "aiAct": {
     "title": "EU-KI-Gesetz-Bereitschaft",
+    "metaDescription": "Werden Sie bis zum 2. August 2026 EU-KI-Gesetz-konform. EuHub AI hilft, Systeme zu klassifizieren, Pflichten zu erfüllen und rechtskonforme KI zu liefern.",
     "lastUpdated": "Entwickeln Sie KI, die auf dem EU-Markt rechtskonform ist – die meisten Pflichten gelten ab dem 2. August 2026.",
     "sections": [
       {
@@ -737,6 +739,7 @@
   },
   "dataResidency": {
     "title": "Datenresidenz & DSGVO",
+    "metaDescription": "Halten Sie KI-Daten und -Workloads in der EU. EuHub AI zeigt genau, wie wir EU-Datenresidenz und DSGVO-Konformität sicherstellen — Infrastruktur und Kontrollen.",
     "lastUpdated": "Ihre Daten bleiben in der EU – hier erfahren Sie genau, wie.",
     "sections": [
       {
