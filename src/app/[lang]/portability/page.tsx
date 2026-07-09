@@ -3,7 +3,7 @@ import { getDictionary } from '../../../get-dictionary';
 import Header from '../../../components/layout/Header';
 import { Footer } from '../../../components/layout/Footer';
 import { LegalPage } from '../../../components/legal/LegalPage';
-import { breadcrumbLd } from '../../../lib/seo';
+import { breadcrumbLd, ogLocale } from '../../../lib/seo';
 
 const BASE_URL = 'https://euhub-ai.com';
 
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: page.title,
       description: page.lastUpdated,
       url: `${BASE_URL}/${lang}/portability`,
-      locale: lang,
+      locale: ogLocale(lang),
       images: ['/og.png'],
     },
   };

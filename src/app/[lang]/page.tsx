@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getDictionary } from '../../get-dictionary';
-import { personLd, serviceLd, founderId } from '../../lib/seo';
+import { personLd, serviceLd, founderId, ogLocale } from '../../lib/seo';
 import { Navbar } from '../../components/navigation/Navbar';
 import { Hero } from '../../components/sections/Hero';
 import { PainsSituations } from '../../components/sections/PainsSituations';
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: dict.meta?.title,
       description: dict.meta?.description,
       url: `${BASE_URL}/${lang}`,
-      locale: lang,
+      locale: ogLocale(lang),
       images: ['/og.png'],
     },
   };

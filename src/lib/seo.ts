@@ -4,6 +4,13 @@
 export const BASE_URL = 'https://euhub-ai.com';
 const ORG_ID = `${BASE_URL}/#organization`;
 
+// Open Graph requires language_TERRITORY (e.g. "en_US"), not a bare language code.
+// en_US is the OG default; swap to en_GB if you prefer EU-flavored English — the territory is cosmetic.
+export const OG_LOCALE: Record<string, string> = { en: 'en_US', sk: 'sk_SK', de: 'de_DE' }
+export function ogLocale(lang: string): string {
+  return OG_LOCALE[lang] ?? 'en_US'
+}
+
 // Team LinkedIn profiles — identity references for Person.sameAs.
 // Keyed by the (locale-stable) member name used in the dictionaries.
 const LINKEDIN: Record<string, string> = {
