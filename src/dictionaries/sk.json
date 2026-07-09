@@ -501,6 +501,7 @@
     },
     "portability": {
         "title": "Vlastníte to. Žiadna závislosť od dodávateľa.",
+        "metaDescription": "Žiadna závislosť od dodávateľa: vlastníte modely, dáta aj procesy. EuHub AI stavia prenositeľné AI systémy, ktoré kedykoľvek exportujete a prevádzkujete v EÚ.",
         "lastUpdated": "Svoju konkurenčnú výhodu by ste si nemali prenajímať.",
         "sections": [
             {
@@ -703,6 +704,7 @@
     },
     "aiAct": {
         "title": "Pripravenosť na Akt EÚ o AI",
+        "metaDescription": "Pripravte sa na Akt EÚ o AI pred termínom 2. augusta 2026. EuHub AI vám pomôže klasifikovať systémy, splniť povinnosti a nasadiť AI, ktorá je legálna v EÚ.",
         "lastUpdated": "Budujte AI, ktorá je legálna na trhu EÚ — väčšina povinností platí od 2. augusta 2026.",
         "sections": [
             {
@@ -737,6 +739,7 @@
     },
     "dataResidency": {
         "title": "Dátová rezidencia a GDPR",
+        "metaDescription": "Udržte svoje AI dáta a záťaže v EÚ. Pozrite si presne, ako EuHub AI zaručuje dátovú rezidenciu v EÚ a súlad s GDPR — infraštruktúra, sub-dodávatelia a kontroly.",
         "lastUpdated": "Vaše dáta zostávajú v EÚ — tu je presne ako.",
         "sections": [
             {

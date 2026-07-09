@@ -501,6 +501,7 @@
   },
   "portability": {
     "title": "You own it. No lock-in.",
+    "metaDescription": "No vendor lock-in: own your models, data and workflows outright. EuHub AI builds portable AI systems you can export anytime and run anywhere in the EU.",
     "lastUpdated": "Your competitive advantage shouldn't be rented.",
     "sections": [
       {
@@ -703,6 +704,7 @@
   },
   "aiAct": {
     "title": "EU AI Act Readiness",
+    "metaDescription": "Get EU AI Act-ready before the 2 August 2026 deadline. EuHub AI helps you classify systems, meet risk and transparency duties, and ship AI that's legal in the EU.",
     "lastUpdated": "Build AI that's legal on the EU market — most obligations apply from 2 August 2026.",
     "sections": [
       {
@@ -737,6 +739,7 @@
   },
   "dataResidency": {
     "title": "Data Residency & GDPR",
+    "metaDescription": "Keep your AI data and workloads inside the EU. See exactly how EuHub AI guarantees EU data residency and GDPR compliance — infrastructure and controls.",
     "lastUpdated": "Your data stays in the EU — here is exactly how.",
     "sections": [
       {

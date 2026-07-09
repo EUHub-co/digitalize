@@ -17,10 +17,11 @@ async function getPage(lang: string) {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const { page } = await getPage(lang);
+  const desc = page.metaDescription ?? page.lastUpdated;
 
   return {
     title: page.title,
-    description: page.lastUpdated,
+    description: desc,
     alternates: {
       canonical: `${BASE_URL}/${lang}/portability`,
       languages: {
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     openGraph: {
       title: page.title,
-      description: page.lastUpdated,
+      description: desc,
       url: `${BASE_URL}/${lang}/portability`,
       locale: ogLocale(lang),
       images: ['/og.png'],
