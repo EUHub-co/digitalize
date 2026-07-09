@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
         source: '/',
         missing: [{ type: 'host', value: 'infra.euhub-ai.com' }],
         destination: '/en',
-        permanent: false,
+        permanent: true,
       },
       // Redirect any path that doesn't start with a locale to /en/path
       // Note: This is a basic catch-all. For more complex i18n, consider using a library or the built-in i18n config if not using App Router manual handling.
@@ -55,7 +55,7 @@ const nextConfig: NextConfig = {
         source: '/:path((?!en|sk|de|api|_next|favicon.ico|robots.txt|infra|.*\\..*).*)',
         missing: [{ type: 'host', value: 'infra.euhub-ai.com' }],
         destination: '/en/:path*',
-        permanent: false,
+        permanent: true,
       },
     ];
   },
