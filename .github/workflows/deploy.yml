@@ -132,3 +132,13 @@ jobs:
             --region=${{ env.REGION }} \
             --project=${{ env.PROJECT_ID }} \
             --quiet
+
+      - name: Ping IndexNow
+        run: |
+          if [ -z "$INDEXNOW_KEY" ]; then
+            echo "INDEXNOW_KEY secret not set — skipping IndexNow ping."
+            exit 0
+          fi
+          node scripts/indexnow-submit.mjs
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
