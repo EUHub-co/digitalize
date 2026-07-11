@@ -39,21 +39,28 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // The infra landing moved to its own repo/service (web-dev-studio/euhub-deploy,
+      // Cloud Run euhub-infra-web). Its canonical host is deploy.euhub-ai.com.
+      {
+        source: '/infra',
+        destination: 'https://deploy.euhub-ai.com',
+        permanent: true,
+      },
+      {
+        source: '/infra/:path*',
+        destination: 'https://deploy.euhub-ai.com/:path*',
+        permanent: true,
+      },
       {
         source: '/',
-        missing: [{ type: 'host', value: 'infra.euhub-ai.com' }],
         destination: '/en',
         permanent: true,
       },
-      // Redirect any path that doesn't start with a locale to /en/path
-      // Note: This is a basic catch-all. For more complex i18n, consider using a library or the built-in i18n config if not using App Router manual handling.
-      // However, since we removed middleware, we rely on the user landing on /en or /sk.
-      // If they visit /some-page, we want to redirect to /en/some-page.
-      // But we must exclude /api, /_next, etc.
-      // Regex lookaheads are not fully supported in simple string sources, but we can try:
+      // Redirect any path that doesn't start with a locale to /en/path.
+      // Excludes api/_next/static files; `infra` is kept in the negative lookahead so the
+      // explicit /infra redirects above win and a stray /infra never falls through to /en/infra.
       {
         source: '/:path((?!en|sk|de|api|_next|favicon.ico|robots.txt|infra|.*\\..*).*)',
-        missing: [{ type: 'host', value: 'infra.euhub-ai.com' }],
         destination: '/en/:path*',
         permanent: true,
       },
