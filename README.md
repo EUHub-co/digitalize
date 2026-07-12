@@ -90,6 +90,10 @@ To add a new language:
 2. Update `src/middleware.ts` to include the new locale
 3. Update `src/get-dictionary.ts` to load the new dictionary
 
+## 🚚 Related services
+
+The **infrastructure / DevSecOps landing** (formerly the `/infra` route + `infra.euhub-ai.com` host-rewrite in this repo) now lives in its own repo **[`web-dev-studio/euhub-deploy`](https://github.com/web-dev-studio/euhub-deploy)**, deployed as the separate Cloud Run service `euhub-infra-web`. Its canonical host is **`deploy.euhub-ai.com`**. This repo 301/308-redirects `/infra` there. See `docs/superpowers/plans/2026-07-11-split-infra-repo.md` for the full split.
+
 ## 📝 License
 
 © 2025 AI-Ops Studio. All rights reserved.
