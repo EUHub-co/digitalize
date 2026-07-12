@@ -41,6 +41,10 @@ const nextConfig: NextConfig = {
     return [
       // The infra landing moved to its own repo/service (web-dev-studio/euhub-deploy,
       // Cloud Run euhub-infra-web). Its canonical host is deploy.euhub-ai.com.
+      // Both /infra and /deploy on the apex redirect there (path preserved).
+      // NOTE on /deploy: it must be handled explicitly here — "deploy" starts with "de",
+      // so it slips past the locale catch-all below (which excludes the `de` locale) and
+      // would otherwise render the main homepage via the [lang] route (lang="deploy" → en).
       {
         source: '/infra',
         destination: 'https://deploy.euhub-ai.com',
@@ -48,6 +52,16 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/infra/:path*',
+        destination: 'https://deploy.euhub-ai.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/deploy',
+        destination: 'https://deploy.euhub-ai.com',
+        permanent: true,
+      },
+      {
+        source: '/deploy/:path*',
         destination: 'https://deploy.euhub-ai.com/:path*',
         permanent: true,
       },
