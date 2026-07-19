@@ -3,50 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* Neo-Corporate Dark Mode Palette */
-  --background: #0D0E15;
-  /* Deep Charcoal */
-  --foreground: #ffffff;
-
-  --primary: #00E5FF;
-  /* Electric Cyan */
-  --primary-glow: rgba(0, 229, 255, 0.4);
-
-  --secondary: #7B61FF;
-  /* Deep Violet */
-  --secondary-glow: rgba(123, 97, 255, 0.4);
-
-  --accent: #00E5FF;
-
-  --card-bg: #151722;
-  --card-border: rgba(255, 255, 255, 0.05);
-  /* 1px semi-transparent borders */
-  --card-hover: rgba(0, 229, 255, 0.1);
-  /* Electric cyan border glow base */
-  --muted-foreground: #A1A1AA;
-  /* Light Gray for sub-headlines */
-
-  /* Fluid typography using clamp for bilingual layout fluidity */
-  --fluid-h1: clamp(3rem, 5vw + 1rem, 5.125rem);
-  /* ~48px to ~82px */
-  --fluid-h2: clamp(2rem, 3vw + 1rem, 3rem);
-  /* ~32px to ~48px */
-  --fluid-h3: clamp(1.5rem, 2vw + 1rem, 2rem);
-  /* ~24px to ~32px */
-  --fluid-p: clamp(1rem, 1vw + 0.75rem, 1.125rem);
-  /* ~16px to ~18px */
-
-  --font-heading: 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  /* Engineering aesthetic */
-
-  --max-width: 1200px;
-  --header-height: 80px;
-}
-
-[data-theme='light'],
-.light {
+  /* Neo-Corporate Light Mode Palette (default) */
   --background: #F8FAFC;
   /* Slate 50/White alternative */
   --foreground: #0F172A;
@@ -69,6 +26,65 @@
   /* cyan border glow base */
   --muted-foreground: #475569;
   /* Strong, readable slate gray */
+
+  /* Fluid typography using clamp for bilingual layout fluidity */
+  --fluid-h1: clamp(3rem, 5vw + 1rem, 5.125rem);
+  /* ~48px to ~82px */
+  --fluid-h2: clamp(2rem, 3vw + 1rem, 3rem);
+  /* ~32px to ~48px */
+  --fluid-h3: clamp(1.5rem, 2vw + 1rem, 2rem);
+  /* ~24px to ~32px */
+  --fluid-p: clamp(1rem, 1vw + 0.75rem, 1.125rem);
+  /* ~16px to ~18px */
+
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Engineering aesthetic */
+
+  --max-width: 72rem;
+  --header-height: 4.25rem;
+  --header-utility-height: 2.25rem;
+  --header-total-height: calc(var(--header-utility-height) + var(--header-height));
+
+  --status-success: #166534;
+  --status-success-bg: #E6F6EC;
+  --status-warning: #92400E;
+  --status-warning-bg: #FBF0DD;
+  --status-danger: #991B1B;
+  --status-danger-bg: #FBE7E7;
+}
+
+[data-theme='dark'],
+.dark {
+  --background: #0D0E15;
+  /* Deep Charcoal */
+  --foreground: #ffffff;
+
+  --primary: #00E5FF;
+  /* Electric Cyan */
+  --primary-glow: rgba(0, 229, 255, 0.4);
+
+  --secondary: #7B61FF;
+  /* Deep Violet */
+  --secondary-glow: rgba(123, 97, 255, 0.4);
+
+  --accent: #00E5FF;
+
+  --card-bg: #151722;
+  --card-border: rgba(255, 255, 255, 0.05);
+  /* 1px semi-transparent borders */
+  --card-hover: rgba(0, 229, 255, 0.1);
+  /* Electric cyan border glow base */
+  --muted-foreground: #A1A1AA;
+  /* Light Gray for sub-headlines */
+
+  --status-success: #7EE0A3;
+  --status-success-bg: #143522;
+  --status-warning: #F4C27D;
+  --status-warning-bg: #3D2C16;
+  --status-danger: #F5A3A3;
+  --status-danger-bg: #3D1616;
 }
 
 * {
@@ -243,4 +259,15 @@ a {
   background-position: center;
   position: relative;
   z-index: 0;
+}
+
+/* Site-wide reduced-motion guard for plain CSS/Tailwind animations that can't
+   be gated by a JS prefers-reduced-motion check (e.g. Tailwind's .animate-ping,
+   the hero's marquee track). */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ping,
+  .animate-pulse,
+  .marquee-track {
+    animation: none;
+  }
 }

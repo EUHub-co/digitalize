@@ -1,41 +1,42 @@
-.toggle {
-    background: rgba(99, 102, 241, 0.1);
-    border: 2px solid var(--primary);
-    border-radius: 0.5rem;
-    padding: 0.6rem;
-    cursor: pointer;
-    display: flex;
+.group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem;
+    border-radius: 9999px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+}
+
+.option {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    border: none;
+    background: transparent;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.option:hover {
     color: var(--primary);
-    min-width: 44px;
-    min-height: 44px;
-    font-weight: 600;
 }
 
-.toggle:hover {
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--accent);
-    border-color: var(--accent);
-    transform: scale(1.1);
-}
-
-.toggle:active {
-    transform: scale(0.95);
+.option[aria-checked="true"] {
+    background: var(--card-hover);
+    color: var(--primary);
 }
 
 .icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.toggle:hover .icon {
-    transform: rotate(20deg);
+    width: 1rem;
+    height: 1rem;
 }
 
 .placeholder {
-    width: 2.25rem;
+    width: 6.5rem;
     height: 2.25rem;
 }

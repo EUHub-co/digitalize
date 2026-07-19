@@ -38,7 +38,7 @@ export const Contact = ({ lang, dict }: { lang: string, dict: any }) => {
                         <div className="space-y-10">
                             <div>
                                 <span className="text-[var(--primary)] font-mono text-sm tracking-widest uppercase mb-4 block">
-                                    05 // {dict.cta?.tag || 'Initiate Diagnostic'}
+                                    08 // {dict.cta?.tag || 'Initiate Diagnostic'}
                                 </span>
                                 <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
                                     {dict.cta?.title || 'Stop bleeding capital on manual ops.'}
@@ -110,7 +110,7 @@ export const Contact = ({ lang, dict }: { lang: string, dict: any }) => {
                                                 className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-[rgba(0,0,0,0.3)] border border-slate-200 dark:border-[var(--card-border)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)] text-[var(--foreground)] placeholder-slate-500 dark:placeholder-[var(--muted-foreground)] focus:outline-none transition-all"
                                                 placeholder={dict.contactSection?.namePlaceholder || 'Your identifier'}
                                             />
-                                            <ValidationError id="name-error" prefix="Name" field="name" errors={state.errors} className="text-red-500 text-sm mt-1" />
+                                            <ValidationError id="name-error" prefix="Name" field="name" errors={state.errors} className="text-[var(--status-danger)] text-sm mt-1" />
                                         </div>
 
                                         <div className="space-y-1">
@@ -126,7 +126,7 @@ export const Contact = ({ lang, dict }: { lang: string, dict: any }) => {
                                                 className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-[rgba(0,0,0,0.3)] border border-slate-200 dark:border-[var(--card-border)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)] text-[var(--foreground)] placeholder-slate-500 dark:placeholder-[var(--muted-foreground)] focus:outline-none transition-all"
                                                 placeholder="sysadmin@enterprise.com"
                                             />
-                                            <ValidationError id="email-error" prefix="Email" field="email" errors={state.errors} className="text-red-500 text-sm mt-1" />
+                                            <ValidationError id="email-error" prefix="Email" field="email" errors={state.errors} className="text-[var(--status-danger)] text-sm mt-1" />
                                         </div>
 
                                         <div className="space-y-1">
@@ -141,7 +141,7 @@ export const Contact = ({ lang, dict }: { lang: string, dict: any }) => {
                                                 className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-[rgba(0,0,0,0.3)] border border-slate-200 dark:border-[var(--card-border)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)] text-[var(--foreground)] placeholder-slate-500 dark:placeholder-[var(--muted-foreground)] focus:outline-none transition-all resize-none"
                                                 placeholder={dict.contactSection?.messagePlaceholder || 'Which systems do you need to integrate?'}
                                             ></textarea>
-                                            <ValidationError id="message-error" prefix="Message" field="message" errors={state.errors} className="text-red-500 text-sm mt-1" />
+                                            <ValidationError id="message-error" prefix="Message" field="message" errors={state.errors} className="text-[var(--status-danger)] text-sm mt-1" />
                                         </div>
 
                                         <button

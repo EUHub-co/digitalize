@@ -101,7 +101,7 @@ jobs:
               --project=${{ env.PROJECT_ID }} \
               --platform=managed \
               --service-account=${{ env.RUNTIME_SERVICE_ACCOUNT }} \
-              --set-env-vars="NEXT_PUBLIC_GTM_ID=${{ secrets.GTM_ID }}" \
+              --set-env-vars="NEXT_PUBLIC_UMAMI_SCRIPT_URL=${{ vars.NEXT_PUBLIC_UMAMI_SCRIPT_URL }},NEXT_PUBLIC_UMAMI_WEBSITE_ID=${{ vars.NEXT_PUBLIC_UMAMI_WEBSITE_ID }}" \
               --memory=1Gi \
               --cpu=1 \
               --timeout=3600 \
@@ -117,7 +117,7 @@ jobs:
               --platform=managed \
               --allow-unauthenticated \
               --service-account=${{ env.RUNTIME_SERVICE_ACCOUNT }} \
-              --set-env-vars="NEXT_PUBLIC_GTM_ID=${{ secrets.GTM_ID }}" \
+              --set-env-vars="NEXT_PUBLIC_UMAMI_SCRIPT_URL=${{ vars.NEXT_PUBLIC_UMAMI_SCRIPT_URL }},NEXT_PUBLIC_UMAMI_WEBSITE_ID=${{ vars.NEXT_PUBLIC_UMAMI_WEBSITE_ID }}" \
               --port=3000 \
               --memory=1Gi \
               --cpu=1 \

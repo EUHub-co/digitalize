@@ -23,7 +23,7 @@ export const CaseStudies = ({ lang, dict }: { lang: string, dict: any }) => {
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mb-14">
                     <span className="text-[var(--primary)] font-mono text-sm tracking-widest uppercase mb-4 block">
-                        {dict.caseStudies?.tag || 'Proof'}
+                        06 // {dict.caseStudies?.tag || 'Proof'}
                     </span>
                     <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--foreground)]">
                         {dict.caseStudies?.title}

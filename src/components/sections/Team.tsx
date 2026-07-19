@@ -15,7 +15,7 @@ export const Team = ({ lang, dict }: { lang: string, dict: any }) => {
                 {/* Header */}
                 <div className="max-w-3xl mb-14">
                     <span className="text-[var(--primary)] font-mono text-sm tracking-widest uppercase mb-4 block">
-                        04 // {dict.team?.tag || 'Team'}
+                        07 // {dict.team?.tag || 'Team'}
                     </span>
                     <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--foreground)]">
                         {dict.team?.title || 'The people behind your implementation'}

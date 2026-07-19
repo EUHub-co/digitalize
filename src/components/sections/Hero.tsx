@@ -1,12 +1,44 @@
 'use client';
 
 import { GlassCard } from '../shared/GlassCard';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const Hero = ({ lang, dict }: { lang: string, dict: any }) => {
     const [step, setStep] = useState(0);
+    const [reduced, setReduced] = useState(false);
+    const [onScreen, setOnScreen] = useState(true);
+    const sectionRef = useRef<HTMLElement>(null);
+
+    // Honour prefers-reduced-motion
+    useEffect(() => {
+        if (typeof window === 'undefined' || !window.matchMedia) return;
+        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setReduced(mq.matches);
+        const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
+        mq.addEventListener('change', onChange);
+        return () => mq.removeEventListener('change', onChange);
+    }, []);
+
+    // Pause the loop when the hero is offscreen
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el || typeof IntersectionObserver === 'undefined') return;
+        const obs = new IntersectionObserver(
+            ([entry]) => setOnScreen(entry.isIntersecting),
+            { threshold: 0.1 }
+        );
+        obs.observe(el);
+        return () => obs.disconnect();
+    }, []);
 
     useEffect(() => {
+        if (!onScreen) return;
+
+        if (reduced) {
+            setStep(3);
+            return;
+        }
+
         let timeoutIds: NodeJS.Timeout[] = [];
         const runSequence = () => {
             setStep(0);
@@ -17,16 +49,16 @@ export const Hero = ({ lang, dict }: { lang: string, dict: any }) => {
         };
         runSequence();
         return () => timeoutIds.forEach(clearTimeout);
-    }, []);
+    }, [reduced, onScreen]);
 
     return (
-        <section className="relative min-h-[90vh] flex flex-col justify-center pt-[calc(var(--header-height)+4rem)] pb-24 overflow-hidden bg-transparent">
+        <section ref={sectionRef} className="relative min-h-[90vh] flex flex-col justify-center pt-[calc(var(--header-total-height)+4rem)] pb-24 overflow-hidden bg-transparent">
             {/* Background Elements - Mesh Gradient */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 bg-[var(--background)]">
-                {/* Subtle mesh/glow effect matching Neo-Corporate aesthetic */}
-                <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-[var(--primary)] opacity-[0.07] blur-[140px] mix-blend-screen"></div>
-                <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[var(--secondary)] opacity-[0.05] blur-[120px] mix-blend-screen"></div>
-
+            {/* Radial-gradient glow (cheap to paint) instead of blurred solid circles */}
+            <div
+                className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 bg-[var(--background)]"
+                style={{ backgroundImage: 'radial-gradient(circle at 15% 10%, var(--primary-glow), transparent 30%), radial-gradient(circle at 85% 35%, var(--secondary-glow), transparent 30%)' }}
+            >
                 {/* Cyber grid lines for enterprise feel */}
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPPHBhdGggZD0iTTAgNDBoNDBNNDAgMHY0MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] opacity-50"></div>
 
@@ -131,7 +163,7 @@ export const Hero = ({ lang, dict }: { lang: string, dict: any }) => {
 
             {/* Enterprise Trust Bar Marquee */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-[var(--card-border)] bg-slate-50/80 dark:bg-[#151722]/90 backdrop-blur-md py-6 flex items-center z-20">
-                <div className="flex justify-start items-center space-x-12 animate-[marquee_30s_linear_infinite] px-4">
+                <div className="marquee-track flex justify-start items-center space-x-12 animate-[marquee_30s_linear_infinite] px-4">
                     {/* Repeated items for smooth scrolling */}
                     {[...Array(2)].map((_, j) => (
                         <div key={j} className="flex space-x-12 items-center min-w-max">
