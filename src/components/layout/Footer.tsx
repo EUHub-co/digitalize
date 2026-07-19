@@ -75,7 +75,6 @@ export const Footer = ({ lang, dict }: { lang: string, dict: any }) => {
                         <Link href={`/${lang}/privacy`} className="hover:text-[var(--foreground)] transition-colors">{dict.footer?.privacy || 'Privacy Policy'}</Link>
                         <Link href={`/${lang}/terms`} className="hover:text-[var(--foreground)] transition-colors">{dict.footer?.terms || 'Terms of Service'}</Link>
                         <Link href={`/${lang}/cookie`} className="hover:text-[var(--foreground)] transition-colors">{dict.footer?.cookies || 'Cookie Policy'}</Link>
-                        <button type="button" data-cc="show-preferencesModal" className="hover:text-[var(--foreground)] transition-colors cursor-pointer">{dict.footer?.cookiePreferences || 'Cookie Preferences'}</button>
                     </div>
                 </div>
             </div>
