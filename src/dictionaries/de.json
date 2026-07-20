@@ -361,16 +361,24 @@
     },
     "items": [
       {
-        "title": "ERP/CRM-Synchronisierung",
-        "desc": "Bidirektionale Synchronisierung mit SAP, Salesforce und internen Datenbanken."
+        "title": "LLM-Integrationen",
+        "desc": "Kommerzielle, offene oder vollständig selbst gehostete Modelle, eingebunden in Ihre bestehenden Tools — je nach Anwendungsfall gewählt, nie an einen Anbieter gebunden."
+      },
+      {
+        "title": "Wissen & Retrieval",
+        "desc": "RAG-Systeme, die Ihre interne Wissensbasis indexieren — für sofortigen, sicheren Zugriff über Abteilungen hinweg."
+      },
+      {
+        "title": "AIOps & Incident Intelligence",
+        "desc": "Telemetriegesteuerte Agenten, die Abweichungen und Anomalien früh erkennen, Vorfälle priorisieren und Ihnen eine Zusammenfassung statt eines Alarms liefern."
+      },
+      {
+        "title": "Prozessautomatisierung",
+        "desc": "Agentische Workflows über Ihr bestehendes ERP/CRM via konforme API-Anbindung — bidirektionale Synchronisierung mit SAP, Salesforce und internen Datenbanken, weniger manuelle Eingabe, weniger verlorene Übergaben."
       },
       {
         "title": "Sicherer Tresor",
         "desc": "Isolierte Single-Tenant-Bereitstellung in Ihrer eigenen Umgebung (On-Premise oder Private Cloud): Verschlüsselung bei Übertragung und im Ruhezustand, rollenbasierte Zugriffskontrolle und lückenlose Audit-Protokolle."
-      },
-      {
-        "title": "Automatisiertes Reporting",
-        "desc": "Sofortige Erstellung vorstandsfähiger Prüfberichte."
       }
     ]
   },

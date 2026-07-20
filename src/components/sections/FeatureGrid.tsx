@@ -137,9 +137,11 @@ export const FeatureGrid = ({ lang, dict }: { lang: string, dict: any }) => {
     const scene = scenes[sceneIndex];
 
     const features = dict.features?.items || [
-        { title: 'ERP/CRM Syncing', desc: 'Bidirectional sync with SAP, Salesforce, and internal databases.' },
-        { title: 'Secure Vault', desc: 'Isolated single-tenant deployment in your own environment (on-premise or private cloud): encryption in transit and at rest, role-based access control, and full audit trails.' },
-        { title: 'Automated Reporting', desc: 'Generate board-ready audit reports instantaneously.' }
+        { title: 'LLM Integrations', desc: 'Commercial, open-weight, or fully self-hosted models wired into your existing tools — chosen per use case, never locked to one vendor.' },
+        { title: 'Knowledge & Retrieval', desc: 'RAG systems that index your internal knowledge base for instant, secure retrieval across departments.' },
+        { title: 'AIOps & Incident Intelligence', desc: 'Telemetry-driven agents that catch drift and anomalies early, triage incidents, and hand you a summary instead of a pager alert.' },
+        { title: 'Process Automation', desc: 'Agentic workflows over your existing ERP/CRM via compliant API bridges — less manual entry, fewer dropped handoffs.' },
+        { title: 'Secure Vault', desc: 'Isolated single-tenant deployment in your own environment (on-premise or private cloud): encryption in transit and at rest, role-based access control, and full audit trails.' }
     ];
 
     return (
@@ -285,16 +287,20 @@ export const FeatureGrid = ({ lang, dict }: { lang: string, dict: any }) => {
                         <GlassCard key={i} className={`flex flex-col justify-between p-8 border-[var(--card-border)] bg-[var(--card-bg)] backdrop-blur-md transition-all duration-300 opacity-100 group-hover:[&:not(:hover)]:opacity-50 dark:group-hover:[&:not(:hover)]:opacity-30 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(0,229,255,0.2)] hover:border-[#00E5FF]/40 col-span-1 relative overflow-hidden`}>
                             {/* Decorative Background Elements to fill empty space */}
                             <div aria-hidden="true" className="absolute -bottom-8 -right-8 opacity-5 text-black dark:text-white pointer-events-none">
-                                {i === 0 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>}
-                                {i === 1 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>}
-                                {i === 2 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>}
+                                {i === 0 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 9h6v6H9zM4 9h2M4 15h2M18 9h2M18 15h2M9 4v2M15 4v2M9 18v2M15 18v2"></path></svg>}
+                                {i === 1 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"></path></svg>}
+                                {i === 2 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>}
+                                {i === 3 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="M15 5l4 4"></path></svg>}
+                                {i === 4 && <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>}
                             </div>
 
                             <div className="relative z-10 w-12 h-12 rounded-lg bg-[var(--card-border)]/20 border border-[var(--card-border)] flex items-center justify-center mb-6 text-[var(--secondary)]">
                                 <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    {i === 0 && <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>} {/* Activity */}
-                                    {i === 1 && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>} {/* Shield */}
-                                    {i === 2 && <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>} {/* File (Automated Reporting) */}
+                                    {i === 0 && <><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 9h6v6H9zM4 9h2M4 15h2M18 9h2M18 15h2M9 4v2M15 4v2M9 18v2M15 18v2"></path></>} {/* LLM Integrations — chip */}
+                                    {i === 1 && <><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"></path></>} {/* Knowledge & Retrieval — database */}
+                                    {i === 2 && <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>} {/* AIOps — activity/pulse */}
+                                    {i === 3 && <><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="M15 5l4 4"></path></>} {/* Process Automation — workflow/pen */}
+                                    {i === 4 && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>} {/* Secure Vault — shield */}
                                 </svg>
                             </div>
                             <div className="relative z-10">

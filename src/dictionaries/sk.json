@@ -361,16 +361,24 @@
         },
         "items": [
             {
-                "title": "Synchronizácia ERP/CRM",
-                "desc": "Obojsmerná synchronizácia so SAP, Salesforce a internými databázami."
+                "title": "Integrácie LLM",
+                "desc": "Komerčné, open-weight alebo plne self-hosted modely zapojené do vašich existujúcich nástrojov — vyberané podľa konkrétneho use case, nikdy uzamknuté na jedného dodávateľa."
+            },
+            {
+                "title": "Znalosti a vyhľadávanie",
+                "desc": "RAG systémy, ktoré indexujú vašu internú znalostnú bázu pre okamžité a bezpečné vyhľadávanie naprieč oddeleniami."
+            },
+            {
+                "title": "AIOps a inteligencia incidentov",
+                "desc": "Agenti riadení telemetriou, ktorí včas zachytia odchýlky a anomálie, triedia incidenty a namiesto pageru vám dajú súhrn."
+            },
+            {
+                "title": "Automatizácia procesov",
+                "desc": "Agentické workflow nad vaším existujúcim ERP/CRM cez kompatibilné API — obojsmerná synchronizácia so SAP, Salesforce a internými databázami, menej manuálneho zadávania, menej stratených odovzdaní."
             },
             {
                 "title": "Bezpečný trezor",
                 "desc": "Izolované nasadenie jedného nájomcu vo vašom vlastnom prostredí (on-premise alebo privátny cloud): šifrovanie pri prenose aj v pokoji, riadenie prístupu podľa rolí a úplné auditné záznamy."
-            },
-            {
-                "title": "Automatizovaný reporting",
-                "desc": "Okamžité generovanie auditných správ pripravených pre predstavenstvo."
             }
         ]
     },
