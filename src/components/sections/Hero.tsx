@@ -78,7 +78,7 @@ export const Hero = ({ lang, dict }: { lang: string, dict: any }) => {
                     </div>
 
                     <h1 className="text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold leading-[1.1] tracking-tighter text-[var(--foreground)] drop-shadow-sm">
-                        {dict.hero?.title || 'Eliminate Bottlenecks with Agentic AI'}
+                        {dict.hero?.title || 'AI systems and intelligent automation for modern businesses.'}
                     </h1>
 
                     <p className="text-xl md:text-2xl text-[var(--muted-foreground)] max-w-2xl leading-relaxed tracking-wide font-light">
