@@ -361,24 +361,16 @@
     },
     "items": [
       {
-        "title": "LLM Integrations",
-        "desc": "Commercial, open-weight, or fully self-hosted models wired into your existing tools — chosen per use case, never locked to one vendor."
-      },
-      {
-        "title": "Knowledge & Retrieval",
-        "desc": "RAG systems that index your internal knowledge base for instant, secure retrieval across departments."
-      },
-      {
-        "title": "AIOps & Incident Intelligence",
-        "desc": "Telemetry-driven agents that catch drift and anomalies early, triage incidents, and hand you a summary instead of a pager alert."
-      },
-      {
-        "title": "Process Automation",
-        "desc": "Agentic workflows over your existing ERP/CRM via compliant API bridges — bidirectional sync with SAP, Salesforce and internal databases, less manual entry, fewer dropped handoffs."
+        "title": "ERP/CRM Syncing",
+        "desc": "Bidirectional sync with SAP, Salesforce, and internal databases."
       },
       {
         "title": "Secure Vault",
         "desc": "Isolated single-tenant deployment in your own environment (on-premise or private cloud): encryption in transit and at rest, role-based access control, and full audit trails."
+      },
+      {
+        "title": "Automated Reporting",
+        "desc": "Generate board-ready audit reports instantaneously."
       }
     ]
   },
