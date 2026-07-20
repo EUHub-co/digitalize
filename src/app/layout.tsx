@@ -34,14 +34,14 @@ const SKIP_LABEL: Record<string, string> = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai.euhub.co"),
   title: {
-    default: "EuHub AI | Strategic AI Implementation",
-    template: "%s | EuHub AI",
+    default: "EUHub AI | Strategic AI Implementation",
+    template: "%s | EUHub AI",
   },
   description: "Your Strategic AI Implementation Partner in Central Europe. We engineer and deploy agentic AI systems.",
   openGraph: {
     type: "website",
-    siteName: "EuHub AI",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "EuHub AI — Strategic AI Implementation" }],
+    siteName: "EUHub AI",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "EUHub AI — Strategic AI Implementation" }],
   },
   twitter: {
     card: "summary_large_image",
