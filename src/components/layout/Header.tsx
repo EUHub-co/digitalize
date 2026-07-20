@@ -34,7 +34,7 @@ export default function Header({ dict, lang }: { dict: any, lang: string }) {
                 <Link href={`/${lang}`} className={styles.logo}>
                     <Image
                         src={mounted ? (resolvedTheme === 'dark' ? '/logo_dark.webp' : '/logo_light.webp') : '/logo_light.webp'}
-                        alt="EuHub AI"
+                        alt="EUHub AI"
                         fill
                         sizes="140px"
                         style={{ objectFit: 'contain' }}

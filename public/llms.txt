@@ -1,4 +1,4 @@
-# EuHub AI
+# EUHub AI
 
 > Your Strategic AI Implementation Partner in Central Europe. We audit your
 > workflows and engineer specific agentic AI systems that eliminate precise

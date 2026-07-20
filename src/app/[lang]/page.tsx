@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang as 'en' | 'sk' | 'de');
 
   return {
-    // absolute → skip the "%s | EuHub AI" template (meta.title already carries the brand)
-    title: { absolute: dict.meta?.title || 'EuHub AI | Strategic AI Implementation' },
+    // absolute → skip the "%s | EUHub AI" template (meta.title already carries the brand)
+    title: { absolute: dict.meta?.title || 'EUHub AI | Strategic AI Implementation' },
     description: dict.meta?.description,
     alternates: {
       canonical: `${BASE_URL}/${lang}`,
@@ -57,11 +57,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {
         '@type': 'Organization',
         '@id': `${BASE_URL}/#organization`,
-        name: 'EuHub AI',
-        legalName: 'Engineers-incubator s.r.o.',
+        name: 'EUHub AI',
+        legalName: 'Engineers Incubator s.r.o.',
         url: BASE_URL,
         logo: `${BASE_URL}/logo_dark.webp`,
         email: 'hello@euhub-ai.com',
+        parentOrganization: { '@type': 'Organization', name: 'EUHUB.CO', url: 'https://euhub.co' },
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Horná 67',
@@ -76,7 +77,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         '@type': 'WebSite',
         '@id': `${BASE_URL}/#website`,
         url: BASE_URL,
-        name: 'EuHub AI',
+        name: 'EUHub AI',
         publisher: { '@id': `${BASE_URL}/#organization` },
         inLanguage: lang,
       },

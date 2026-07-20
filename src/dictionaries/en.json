@@ -361,16 +361,24 @@
     },
     "items": [
       {
-        "title": "ERP/CRM Syncing",
-        "desc": "Bidirectional sync with SAP, Salesforce, and internal databases."
+        "title": "LLM Integrations",
+        "desc": "Commercial, open-weight, or fully self-hosted models wired into your existing tools — chosen per use case, never locked to one vendor."
+      },
+      {
+        "title": "Knowledge & Retrieval",
+        "desc": "RAG systems that index your internal knowledge base for instant, secure retrieval across departments."
+      },
+      {
+        "title": "AIOps & Incident Intelligence",
+        "desc": "Telemetry-driven agents that catch drift and anomalies early, triage incidents, and hand you a summary instead of a pager alert."
+      },
+      {
+        "title": "Process Automation",
+        "desc": "Agentic workflows over your existing ERP/CRM via compliant API bridges — bidirectional sync with SAP, Salesforce and internal databases, less manual entry, fewer dropped handoffs."
       },
       {
         "title": "Secure Vault",
         "desc": "Isolated single-tenant deployment in your own environment (on-premise or private cloud): encryption in transit and at rest, role-based access control, and full audit trails."
-      },
-      {
-        "title": "Automated Reporting",
-        "desc": "Generate board-ready audit reports instantaneously."
       }
     ]
   },
@@ -502,7 +510,7 @@
   },
   "portability": {
     "title": "You own it. No lock-in.",
-    "metaDescription": "No vendor lock-in: own your models, data and workflows outright. EuHub AI builds portable AI systems you can export anytime and run anywhere in the EU.",
+    "metaDescription": "No vendor lock-in: own your models, data and workflows outright. EUHub AI builds portable AI systems you can export anytime and run anywhere in the EU.",
     "lastUpdated": "Your competitive advantage shouldn't be rented.",
     "sections": [
       {
@@ -579,12 +587,12 @@
     "backHome": "Back to Home"
   },
   "meta": {
-    "title": "EuHub AI | Strategic AI Implementation",
+    "title": "EUHub AI | Strategic AI Implementation",
     "description": "Your Strategic AI Implementation Partner in Central Europe. We engineer and deploy agentic AI systems that eliminate operational bottlenecks."
   },
   "aiAct": {
     "title": "EU AI Act Readiness",
-    "metaDescription": "Get EU AI Act-ready before the 2 August 2026 deadline. EuHub AI helps classify systems, meet risk and transparency duties, and ship AI that's legal in the EU.",
+    "metaDescription": "Get EU AI Act-ready before the 2 August 2026 deadline. EUHub AI helps classify systems, meet risk and transparency duties, and ship AI that's legal in the EU.",
     "lastUpdated": "Build AI that's legal on the EU market — most obligations apply from 2 August 2026.",
     "sections": [
       {
@@ -619,7 +627,7 @@
   },
   "dataResidency": {
     "title": "Data Residency & GDPR",
-    "metaDescription": "Keep your AI data and workloads inside the EU. See exactly how EuHub AI guarantees EU data residency and GDPR compliance — infrastructure and controls.",
+    "metaDescription": "Keep your AI data and workloads inside the EU. See exactly how EUHub AI guarantees EU data residency and GDPR compliance — infrastructure and controls.",
     "lastUpdated": "Your data stays in the EU — here is exactly how.",
     "sections": [
       {
@@ -654,7 +662,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "metaDescription": "How EuHub AI collects, uses, and protects your data under GDPR — your rights, retention periods, and how to contact us.",
+    "metaDescription": "How EUHub AI collects, uses, and protects your data under GDPR — your rights, retention periods, and how to contact us.",
     "lastUpdated": "Effective Date: 2026",
     "sections": [
       {
@@ -697,7 +705,7 @@
   },
   "terms": {
     "title": "Terms of Service",
-    "metaDescription": "The terms governing use of EuHub AI's website and services: scope, liability, intellectual property, and governing law.",
+    "metaDescription": "The terms governing use of EUHub AI's website and services: scope, liability, intellectual property, and governing law.",
     "lastUpdated": "Effective Date: 2026",
     "sections": [
       {
@@ -728,7 +736,7 @@
   },
   "cookie": {
     "title": "Cookie Policy",
-    "metaDescription": "How EuHub AI uses cookies and consent — what we set, why, and how to change your preferences at any time.",
+    "metaDescription": "How EUHub AI uses cookies and consent — what we set, why, and how to change your preferences at any time.",
     "sections": [
       {
         "heading": "1. What are Cookies?",

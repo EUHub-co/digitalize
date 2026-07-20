@@ -25,7 +25,7 @@ export const Footer = ({ lang, dict }: { lang: string, dict: any }) => {
                         <Link href={`/${lang}`} className="relative w-[120px] h-[48px] flex-shrink-0 block mb-6 transition-transform hover:scale-105">
                             <Image
                                 src={mounted ? (resolvedTheme === 'dark' ? '/logo_dark.webp' : '/logo_light.webp') : '/logo_light.webp'}
-                                alt="EuHub AI"
+                                alt="EUHub AI"
                                 fill
                                 sizes="120px"
                                 style={{ objectFit: 'contain' }}
