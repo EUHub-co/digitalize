@@ -5,7 +5,7 @@ import { Footer } from '../../../components/layout/Footer';
 import { LegalPage } from '../../../components/legal/LegalPage';
 import { breadcrumbLd, ogLocale } from '../../../lib/seo';
 
-const BASE_URL = 'https://euhub-ai.com';
+const BASE_URL = 'https://ai.euhub.co';
 
 // Authored in EN, SK and DE. Falls back to EN content for any unknown locale.
 async function getPage(lang: string) {

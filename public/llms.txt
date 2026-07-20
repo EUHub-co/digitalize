@@ -5,14 +5,14 @@
 > operational bottlenecks — before you commit to full investment.
 
 ## Services
-- [The Diagnostic](https://euhub-ai.com/en#diagnostic): evidence-backed audit that maps your operational choke-points and the exact tech stack to fix them (2–4 weeks)
-- [Bespoke Engineering](https://euhub-ai.com/en#engineering): custom, owned AI systems and automation builds — no vendor lock-in
-- [Capabilities](https://euhub-ai.com/en#capabilities): full service overview
+- [The Diagnostic](https://ai.euhub.co/en#diagnostic): evidence-backed audit that maps your operational choke-points and the exact tech stack to fix them (2–4 weeks)
+- [Bespoke Engineering](https://ai.euhub.co/en#engineering): custom, owned AI systems and automation builds — no vendor lock-in
+- [Capabilities](https://ai.euhub.co/en#capabilities): full service overview
 
 ## Compliance
-- [EU AI Act](https://euhub-ai.com/en/ai-act)
-- [Data Residency](https://euhub-ai.com/en/data-residency)
-- [Data Portability](https://euhub-ai.com/en/portability)
+- [EU AI Act](https://ai.euhub.co/en/ai-act)
+- [Data Residency](https://ai.euhub.co/en/data-residency)
+- [Data Portability](https://ai.euhub.co/en/portability)
 
 ## Contact
 - hello@euhub-ai.com

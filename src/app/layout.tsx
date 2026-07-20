@@ -32,7 +32,7 @@ const SKIP_LABEL: Record<string, string> = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://euhub-ai.com"),
+  metadataBase: new URL("https://ai.euhub.co"),
   title: {
     default: "EuHub AI | Strategic AI Implementation",
     template: "%s | EuHub AI",

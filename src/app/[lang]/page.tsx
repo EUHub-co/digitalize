@@ -13,7 +13,7 @@ import { Team } from '../../components/sections/Team';
 import { Contact } from '../../components/sections/Contact';
 import { Footer } from '../../components/layout/Footer';
 
-const BASE_URL = 'https://euhub-ai.com';
+const BASE_URL = 'https://ai.euhub.co';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;

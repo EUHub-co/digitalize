@@ -40,30 +40,54 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // The infra landing moved to its own repo/service (web-dev-studio/euhub-deploy,
-      // Cloud Run euhub-infra-web). Its canonical host is deploy.euhub-ai.com.
+      // Cloud Run euhub-infra-web). Its canonical host is deploy.euhub.co.
       // Both /infra and /deploy on the apex redirect there (path preserved).
       // NOTE on /deploy: it must be handled explicitly here — "deploy" starts with "de",
       // so it slips past the locale catch-all below (which excludes the `de` locale) and
       // would otherwise render the main homepage via the [lang] route (lang="deploy" → en).
+      //
+      // ORDERING: these path-based /infra and /deploy rules MUST stay before the
+      // host-based euhub-ai.com -> ai.euhub.co redirects below. Next evaluates
+      // redirects() in array order and returns the first match — if a host rule ran
+      // first, a request to euhub-ai.com/infra would redirect to ai.euhub.co/infra
+      // instead of chaining correctly to deploy.euhub.co.
       {
         source: '/infra',
-        destination: 'https://deploy.euhub-ai.com',
+        destination: 'https://deploy.euhub.co',
         permanent: true,
       },
       {
         source: '/infra/:path*',
-        destination: 'https://deploy.euhub-ai.com/:path*',
+        destination: 'https://deploy.euhub.co/:path*',
         permanent: true,
       },
       {
         source: '/deploy',
-        destination: 'https://deploy.euhub-ai.com',
+        destination: 'https://deploy.euhub.co',
         permanent: true,
       },
       {
         source: '/deploy/:path*',
-        destination: 'https://deploy.euhub-ai.com/:path*',
+        destination: 'https://deploy.euhub.co/:path*',
         permanent: true,
+      },
+      // Canonical switch: euhub-ai.com (+www) now 301s to ai.euhub.co, preserving
+      // path and query. Must come after the /infra and /deploy path rules above
+      // (see ORDERING note) and before the locale-normalizing rules below, which
+      // are host-agnostic and would otherwise also match these requests.
+      // NOTE: `statusCode: 301` (not `permanent: true`, which Next maps to 308) is
+      // used deliberately here — this migration wants a literal HTTP 301.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'euhub-ai.com' }],
+        destination: 'https://ai.euhub.co/:path*',
+        statusCode: 301,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.euhub-ai.com' }],
+        destination: 'https://ai.euhub.co/:path*',
+        statusCode: 301,
       },
       {
         source: '/',
