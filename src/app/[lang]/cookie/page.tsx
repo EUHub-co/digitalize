@@ -5,7 +5,7 @@ import { Footer } from '../../../components/layout/Footer';
 import { LegalPage } from '../../../components/legal/LegalPage';
 import { breadcrumbLd, ogLocale } from '../../../lib/seo';
 
-const BASE_URL = 'https://euhub-ai.com';
+const BASE_URL = 'https://ai.euhub.co';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;

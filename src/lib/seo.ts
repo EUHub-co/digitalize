@@ -1,7 +1,7 @@
 // Shared JSON-LD / structured-data helpers.
 // Keeping these in one place so every page emits consistent schema.
 
-export const BASE_URL = 'https://euhub-ai.com';
+export const BASE_URL = 'https://ai.euhub.co';
 const ORG_ID = `${BASE_URL}/#organization`;
 
 // Open Graph requires language_TERRITORY (e.g. "en_US"), not a bare language code.

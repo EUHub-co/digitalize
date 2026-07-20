@@ -1,6 +1,6 @@
 // Submits all sitemap URLs to IndexNow (Bing/Yandex). Run after a production deploy.
 // Usage: INDEXNOW_KEY=<key> node scripts/indexnow-submit.mjs
-const HOST = 'euhub-ai.com'
+const HOST = 'ai.euhub.co'
 const KEY = process.env.INDEXNOW_KEY
 if (!KEY) { console.error('Set INDEXNOW_KEY'); process.exit(1) }
 

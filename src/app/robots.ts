@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://euhub-ai.com/sitemap.xml',
+    sitemap: 'https://ai.euhub.co/sitemap.xml',
   }
 }

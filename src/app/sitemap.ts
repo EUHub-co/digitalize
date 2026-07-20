@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://euhub-ai.com'
+const BASE_URL = 'https://ai.euhub.co'
 const LOCALES = ['en', 'sk', 'de'] as const
 const ROUTES = ['', '/ai-act', '/data-residency', '/portability', '/privacy', '/terms', '/cookie'] as const
 
