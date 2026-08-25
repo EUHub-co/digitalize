@@ -69,6 +69,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Install site dependencies
+        run: npm ci
+
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v3
         with:
@@ -132,6 +140,9 @@ jobs:
             --region=${{ env.REGION }} \
             --project=${{ env.PROJECT_ID }} \
             --quiet
+
+      - name: SEO production smoke test
+        run: npm run seo:smoke -- --base-url https://ai.euhub.co
 
       - name: Ping IndexNow
         run: |
