@@ -27,6 +27,8 @@ export type GuideContent = {
   description: string;
   directAnswer: string;
   updatedOn?: string;
+  faqHeading?: string;
+  sourcesHeading?: string;
   sections: GuideSection[];
   faqs?: FaqItem[];
   citations?: Citation[];

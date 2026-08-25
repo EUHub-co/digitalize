@@ -64,7 +64,7 @@ export function GuidePage({ content, lang, backHome }: { content: GuideContent; 
         ))}
 
         {content.faqs?.length ? <section aria-labelledby="faq-heading" className="mt-12">
-          <h2 id="faq-heading" className="text-2xl font-bold text-[var(--foreground)]">Frequently asked questions</h2>
+          <h2 id="faq-heading" className="text-2xl font-bold text-[var(--foreground)]">{content.faqHeading ?? 'Frequently asked questions'}</h2>
           <div className="mt-5 space-y-6">
             {content.faqs.map((faq) => <section key={faq.question}>
               <h3 className="text-lg font-semibold text-[var(--foreground)]">{faq.question}</h3>
@@ -73,7 +73,7 @@ export function GuidePage({ content, lang, backHome }: { content: GuideContent; 
           </div>
         </section> : null}
 
-        <SourceList citations={content.citations ?? []} />
+        <SourceList citations={content.citations ?? []} heading={content.sourcesHeading} />
       </article>
     </main>
   );

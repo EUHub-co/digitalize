@@ -47,18 +47,24 @@ function parseSitemap(xml) {
 }
 
 function validateSchemas(path, html) {
+  const types = new Set();
   const scripts = [...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
   if (!scripts.length) {
     fail(path, 'missing JSON-LD');
-    return;
+    return types;
   }
   for (const [, raw] of scripts) {
     try {
-      JSON.parse(raw);
+      const data = JSON.parse(raw);
+      JSON.stringify(data, (key, value) => {
+        if (key === '@type' && typeof value === 'string') types.add(value);
+        return value;
+      });
     } catch {
       fail(path, 'contains invalid JSON-LD');
     }
   }
+  return types;
 }
 
 async function validateInternalLinks(path, html) {
@@ -120,7 +126,10 @@ async function validatePage(path) {
     if (!attribute(img[0], 'alt')?.trim()) fail(path, 'contains an image without meaningful alt text');
   }
 
-  validateSchemas(path, html);
+  const schemaTypes = validateSchemas(path, html);
+  if (/\/(data-residency|portability)$/.test(path) && !schemaTypes.has('FAQPage')) {
+    fail(path, 'guide FAQs are missing matching FAQPage schema');
+  }
   const minimum = pageMinimum(path);
   const words = stripHtml(html).split(/\s+/).filter(Boolean).length;
   if (words < minimum) fail(path, `has ${words} words, requires at least ${minimum}`);

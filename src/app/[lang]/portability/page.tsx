@@ -3,8 +3,8 @@ import { getDictionary } from '../../../get-dictionary';
 import Header from '../../../components/layout/Header';
 import { Footer } from '../../../components/layout/Footer';
 import { GuidePage } from '../../../components/content/GuidePage';
-import { breadcrumbLd, ogLocale } from '../../../lib/seo';
-import { guideFromLegacy, type LegacyGuide } from '../../../lib/guides';
+import { breadcrumbLd, faqItemsLd, ogLocale } from '../../../lib/seo';
+import { portabilityGuides } from '../../../content/guides/portability';
 
 const BASE_URL = 'https://ai.euhub.co';
 
@@ -45,6 +45,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function PortabilityPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const { dict, page } = await getPage(lang);
+  const guide = portabilityGuides[lang as keyof typeof portabilityGuides] ?? portabilityGuides.en;
+  const faq = faqItemsLd(guide.faqs);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -52,13 +54,14 @@ export default async function PortabilityPage({ params }: { params: Promise<{ la
       {
         '@type': 'WebPage',
         name: page.title,
-        description: page.metaDescription ?? page.lastUpdated,
+        description: guide.description,
         url: `${BASE_URL}/${lang}/portability`,
         inLanguage: lang,
         isPartOf: { '@type': 'WebSite', url: BASE_URL, name: 'EUHub AI' },
         publisher: { '@type': 'Organization', name: 'EUHub AI', url: BASE_URL },
       },
       breadcrumbLd(lang, 'portability', page.title),
+      ...(faq ? [faq] : []),
     ],
   };
 
@@ -66,7 +69,7 @@ export default async function PortabilityPage({ params }: { params: Promise<{ la
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header dict={dict} lang={lang} />
-      <GuidePage content={guideFromLegacy(page as LegacyGuide)} lang={lang} backHome={dict.legal?.backHome || 'Back to Home'} />
+      <GuidePage content={guide} lang={lang} backHome={dict.legal?.backHome || 'Back to Home'} />
       <Footer lang={lang} dict={dict} />
     </>
   );

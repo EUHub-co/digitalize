@@ -59,6 +59,14 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Install site dependencies
+        run: npm ci
+
       - name: Azure login (OIDC, keyless)
         uses: azure/login@v2
         with:
@@ -91,6 +99,9 @@ jobs:
             echo "attempt $i failed; retrying in 10s"; sleep 10
           done
           echo "::error::new revision never became healthy"; exit 1
+
+      - name: SEO production smoke test
+        run: npm run seo:smoke -- --base-url https://ai.euhub.co
 
       - name: Ping IndexNow
         run: |

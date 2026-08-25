@@ -1,5 +1,6 @@
 // Shared JSON-LD / structured-data helpers.
 // Keeping these in one place so every page emits consistent schema.
+import type { FaqItem } from './content-types';
 
 export const BASE_URL = 'https://ai.euhub.co';
 const ORG_ID = `${BASE_URL}/#organization`;
@@ -49,6 +50,19 @@ export function faqLd(sections: { heading: string; content: string }[] | undefin
       '@type': 'Question',
       name: s.heading.trim(),
       acceptedAnswer: { '@type': 'Answer', text: plainText(s.content) },
+    })),
+  };
+}
+
+// FAQ schema is emitted only for questions shown visibly on the same guide.
+export function faqItemsLd(items: FaqItem[] | undefined) {
+  if (!items?.length) return null;
+  return {
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: plainText(item.answer) },
     })),
   };
 }
