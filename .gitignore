@@ -46,3 +46,6 @@ instructions/
 
 # Claude Code local dir (worktrees, scratch)
 .claude/
+
+# Local implementation worktrees
+.worktrees/
