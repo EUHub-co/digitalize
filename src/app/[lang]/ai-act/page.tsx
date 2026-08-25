@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { getDictionary } from '../../../get-dictionary';
 import Header from '../../../components/layout/Header';
 import { Footer } from '../../../components/layout/Footer';
-import { LegalPage } from '../../../components/legal/LegalPage';
+import { GuidePage } from '../../../components/content/GuidePage';
 import { breadcrumbLd, faqLd, ogLocale } from '../../../lib/seo';
+import { guideFromLegacy, type LegacyGuide } from '../../../lib/guides';
 
 const BASE_URL = 'https://ai.euhub.co';
 
@@ -52,7 +53,7 @@ export default async function AiActPage({ params }: { params: Promise<{ lang: st
       {
         '@type': 'WebPage',
         name: page.title,
-        description: page.lastUpdated,
+        description: page.metaDescription ?? page.lastUpdated,
         url: `${BASE_URL}/${lang}/ai-act`,
         inLanguage: lang,
         isPartOf: { '@type': 'WebSite', url: BASE_URL, name: 'EUHub AI' },
@@ -67,13 +68,7 @@ export default async function AiActPage({ params }: { params: Promise<{ lang: st
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header dict={dict} lang={lang} />
-      <LegalPage
-        title={page.title}
-        lastUpdated={page.lastUpdated}
-        sections={page.sections}
-        lang={lang}
-        backHome={dict.legal?.backHome || 'Back to Home'}
-      />
+      <GuidePage content={guideFromLegacy(page as LegacyGuide)} lang={lang} backHome={dict.legal?.backHome || 'Back to Home'} />
       <Footer lang={lang} dict={dict} />
     </>
   );

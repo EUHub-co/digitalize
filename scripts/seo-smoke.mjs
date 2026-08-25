@@ -106,6 +106,9 @@ async function validatePage(path) {
 
   const h1Count = [...html.matchAll(/<h1\b/gi)].length;
   if (h1Count !== 1) fail(path, `has ${h1Count} H1 elements`);
+  if (/\/(ai-act|data-residency|portability)$/.test(path) && !/<article\b/i.test(html)) {
+    fail(path, 'strategic guide is missing an article landmark');
+  }
 
   const alternates = [...html.matchAll(/<link\b(?=[^>]*\brel=["']alternate["'])[^>]*>/gi)]
     .map((match) => attribute(match[0], 'hreflang') ?? attribute(match[0], 'hrefLang'));
