@@ -3,6 +3,8 @@ const fs = require('fs');
 
 const OUT = '/home/engineer/projects/euhub-co/digitalize';
 const DATE = '2026-08-25';
+const POST_DEPLOY = process.env.AUDIT_STAGE === 'post-deploy';
+const FILE_TAG = POST_DEPLOY ? '-post-deploy' : '';
 const NAVY = '1B2A4A', BLUE = '2563EB', GREEN = '16A34A', AMBER = 'D97706', RED = 'DC2626', LIGHT = 'EFF6FF', PALE_GREEN = 'F0FDF4', GRAY = 'E2E8F0', TEXT = '1E293B';
 const audited = [
   ['https://ai.euhub.co/en', 'Homepage', '1,293 words; Organization, Person, Service schema; private/no-store'],
@@ -52,7 +54,7 @@ const cover = [
   new Table({ width: { size: 9360, type: WidthType.DXA }, rows: [new TableRow({ children: [new TableCell({ shading: { type: ShadingType.CLEAR, fill: NAVY }, margins: { top: 1500, bottom: 1450, left: 500, right: 500 }, children: [
     p('ai.euhub.co', { align: AlignmentType.CENTER, size: 72, bold: true, color: 'FFFFFF', after: 180 }),
     p('SEO / GEO / AEO Audit Report', { align: AlignmentType.CENTER, size: 32, color: '93C5FD', after: 80 }),
-    p('FULL RE-AUDIT · LIVE SITE', { align: AlignmentType.CENTER, size: 18, bold: true, color: 'FFFFFF', after: 350 }),
+    p(POST_DEPLOY ? 'FULL RE-AUDIT · POST-DEPLOY' : 'FULL RE-AUDIT · LIVE SITE', { align: AlignmentType.CENTER, size: 18, bold: true, color: 'FFFFFF', after: 350 }),
     new Table({ width: { size: 8360, type: WidthType.DXA }, rows: [new TableRow({ children: [['SEO', '7/10', 'On Track'], ['GEO', '6/10', 'Needs Work'], ['AEO', '6/10', 'Needs Work']].map(([a,b,c]) => new TableCell({ shading: { type: ShadingType.CLEAR, fill: a === 'SEO' ? AMBER : RED }, margins: { top: 160, bottom: 160, left: 80, right: 80 }, children: [p(a, { align: AlignmentType.CENTER, size: 16, bold: true, color: 'FFFFFF', after: 20 }), p(b, { align: AlignmentType.CENTER, size: 56, bold: true, color: 'FFFFFF', after: 10 }), p(c, { align: AlignmentType.CENTER, size: 15, italics: true, color: 'FFFFFF', after: 0 })] })) })] }),
     p('Audit date: 25 August 2026', { align: AlignmentType.CENTER, size: 16, color: '94A3B8', before: 650, after: 20 }),
     p('Independent live-site reassessment', { align: AlignmentType.CENTER, size: 14, color: '94A3B8', after: 0 }),
@@ -62,8 +64,9 @@ const cover = [
 
 const sections = [{ properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } }, children: cover }, { properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1080, right: 1440, bottom: 900, left: 1440 } } }, headers: { default: header }, footers: { default: footer }, children: [
   h1('Executive Summary'),
-  summaryBox('EUHub AI has a solid multilingual technical foundation: every one of the 21 sitemap URLs returned 200, carries a self-referencing canonical and complete EN/SK/DE/x-default alternate set, and the three homepages provide more than 1,100 crawlable words. The decisive finding is operational: the public site has not yet received the completed SEO/GEO/AEO implementation branch. All 21 live HTML responses remain private/no-store, and the data-residency and portability pages are still thin, lack semantic article structure and do not expose matching FAQ schema. The first priority is a controlled deployment followed by the live smoke gate—not a new content strategy.'),
+  summaryBox(POST_DEPLOY ? 'The redeploy is visible in the live sitemap, whose lastmod advanced to 25 August 2026 at 08:59:28Z, but it did not include the SEO/GEO/AEO implementation branch. The full 21-URL live smoke check still reports the same 42 failures: every HTML response remains private/no-store, and the data-residency and portability pages still use the former thin content without semantic article landmarks or matching FAQPage schema. Canonicals, hreflang, metadata, JSON-LD parsing, image alt text, internal links and HTTP status remain healthy. The next action is to integrate and deploy feat/seo-geo-aeo-10of10, then rerun the production smoke gate before IndexNow.' : 'EUHub AI has a solid multilingual technical foundation: every one of the 21 sitemap URLs returned 200, carries a self-referencing canonical and complete EN/SK/DE/x-default alternate set, and the three homepages provide more than 1,100 crawlable words. The decisive finding is operational: the public site has not yet received the completed SEO/GEO/AEO implementation branch. All 21 live HTML responses remain private/no-store, and the data-residency and portability pages are still thin, lack semantic article structure and do not expose matching FAQ schema. The first priority is a controlled deployment followed by the live smoke gate—not a new content strategy.'),
   table(['Dimension', 'Score', 'Status', 'Key takeaway'], [['SEO', '7/10', 'On Track', 'Strong metadata, sitemap and hreflang; live cache and content deployment gap remain.'], ['GEO', '6/10', 'Needs Work', 'Clear entity/service signals, but approved expert bylines, source-led guides and proof remain limited live.'], ['AEO', '6/10', 'Needs Work', 'AI Act FAQPage is useful; other guides are too short and lack structured answer formats.'], ['Combined', '19/30', 'Needs Attention', 'The implementation exists on the feature branch but is not live.']], [1500, 1100, 1500, 5260]),
+  ...(POST_DEPLOY ? [h2('Deployment Verification'), table(['Signal', 'Before redeploy', 'After redeploy'], [['Sitemap build timestamp', '2026-07-21', '2026-08-25 08:59:28Z'], ['Live SEO smoke failures', '42', '42'], ['Uncacheable HTML URLs', '21 of 21', '21 of 21'], ['Enriched residency/portability guides', 'Not live', 'Not live'], ['Implementation branch vs main', 'Four SEO commits pending', 'Four SEO commits still pending']], [3000, 3180, 3180])] : []),
   h1('Pages Audited'),
   p('Full crawl: all 21 URLs declared in the live XML sitemap. The nine legal-policy URLs were checked for indexability and internationalization; the twelve home and strategic-guide URLs received content, schema and answer-format analysis.', { size: 19 }),
   table(['URL', 'Page type', 'Live observation'], audited, [3500, 1500, 4360]),
@@ -94,4 +97,4 @@ const sections = [{ properties: { page: { size: { width: 12240, height: 15840 },
 ] }];
 
 const doc = new Document({ creator: 'EUHub AI SEO/GEO/AEO audit', title: 'ai.euhub.co Full SEO/GEO/AEO Re-audit', sections });
-Packer.toBuffer(doc).then(buffer => fs.writeFileSync(`${OUT}/seo-reaudit-ai-euhub-co-${DATE}.docx`, buffer));
+Packer.toBuffer(doc).then(buffer => fs.writeFileSync(`${OUT}/seo-reaudit-ai-euhub-co-${DATE}${FILE_TAG}.docx`, buffer));
