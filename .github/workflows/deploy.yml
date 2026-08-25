@@ -142,7 +142,7 @@ jobs:
             --quiet
 
       - name: SEO production smoke test
-        run: npm run seo:smoke -- --base-url https://ai.euhub.co
+        run: node scripts/retry-command.mjs --attempts 12 --delay-ms 10000 -- npm run seo:smoke -- --base-url https://ai.euhub.co
 
       - name: Ping IndexNow
         run: |
