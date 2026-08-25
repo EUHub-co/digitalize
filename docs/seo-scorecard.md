@@ -24,6 +24,7 @@
 |---|---|---|---|
 | 2026-08-25 | Local production build | Pass | Baseline Next.js build completed before implementation. |
 | 2026-08-25 | ESLint | Pre-existing failure | 41 errors in unrelated existing components; user approved continuing SEO/GEO/AEO work without broad lint remediation. |
+| 2026-08-25 | Static locale rendering | Pass | All 21 locale pages are prerendered with `generateStaticParams`; local smoke check no longer finds `private` or `no-store` marketing HTML. |
 
 ## External release gates
 

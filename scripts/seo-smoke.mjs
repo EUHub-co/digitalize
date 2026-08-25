@@ -87,6 +87,9 @@ async function validatePage(path) {
     return;
   }
   if (!response.headers.get('content-type')?.includes('text/html')) fail(path, 'does not return HTML');
+  if (/\bprivate\b|\bno-store\b/i.test(response.headers.get('cache-control') ?? '')) {
+    fail(path, `uses uncacheable HTML response headers: ${response.headers.get('cache-control')}`);
+  }
 
   const htmlTag = html.match(/<html\b[^>]*>/i)?.[0] ?? '';
   const expectedLang = path.split('/')[1];
